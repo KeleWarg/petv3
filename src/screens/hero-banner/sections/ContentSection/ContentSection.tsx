@@ -1,30 +1,4 @@
-import { ArrowUpRightIcon } from "lucide-react";
 import React, { useState } from "react";
-import { CustomArrowUpRightIcon } from "../../../../assets/icons";
-
-// Question cards data
-const QUESTION_CARDS = [
-  {
-    id: "dogs-cats-cost",
-    question: "Pet Insurance Cost for Dogs and Cats",
-    targetSection: "insurance-cost"
-  },
-  {
-    id: "plan-details",
-    question: "Pet insurance plan details",
-    targetSection: "plan-details"
-  },
-  {
-    id: "user-opinions",
-    question: "User Opinion of Pet Insurance Companies",
-    targetSection: "user-opinion"
-  },
-  {
-    id: "claims-feedback",
-    question: "User Feedback on Claims Process",
-    targetSection: "claims-feedback"
-  }
-];
 import { Badge } from "../../../../components/ui/badge";
 import {
   Breadcrumb,
@@ -36,22 +10,14 @@ import {
 import { Button } from "../../../../components/ui/button";
 import { Card, CardContent } from "../../../../components/ui/card";
 
-export const ContentSection = (): JSX.Element => {
+interface ContentSectionProps {
+  onOpenChat?: () => void;
+  quickDiveRef?: React.RefObject<HTMLDivElement>;
+}
+
+export const ContentSection = ({ onOpenChat, quickDiveRef }: ContentSectionProps): JSX.Element => {
   const [showAllAuthors, setShowAllAuthors] = useState(false);
   
-  // Handle question card clicks - scroll to relevant section
-  const handleQuestionClick = (targetSection: string) => {
-    const targetElement = document.getElementById(targetSection);
-    if (targetElement) {
-      const elementTop = targetElement.getBoundingClientRect().top + window.pageYOffset;
-      const offsetTop = elementTop - 80; // 80px offset to account for sticky nav
-      
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth'
-      });
-    }
-  };
   const breadcrumbItems = [
     { label: "ADVISOR", href: "#" },
     { label: "INSURANCE", href: "#" },
@@ -170,7 +136,6 @@ export const ContentSection = (): JSX.Element => {
                   and surveying 2,600 pet parents covering 300 breeds.{" "}
                   <span 
                     className="underline cursor-pointer"
-                    onClick={() => handleQuestionClick('methodology')}
                   >
                     Read our methodology
                   </span>
@@ -330,37 +295,57 @@ export const ContentSection = (): JSX.Element => {
         </div>
       </div>
 
-      <div className="w-full pt-4 sm:pt-6 pb-6 sm:pb-8 border-b border-solid border-[#eceff3] overflow-hidden">
+      <div ref={quickDiveRef} className="w-full pt-4 sm:pt-6 pb-6 sm:pb-8 border-b border-solid border-[#eceff3] overflow-hidden">
         <div className="w-full max-w-none sm:max-w-[1440px] min-w-0 mx-auto px-4 sm:px-6 md:px-8 lg:px-[90px]">
           <div className="grid grid-cols-1 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-3 sm:gap-5 w-full min-w-0">
-            <div className="col-span-1 sm:col-span-8 md:col-span-10 lg:col-span-12 flex flex-col items-start gap-4 sm:gap-6 min-w-0">
-              <div className="text-black text-lg sm:text-xl font-bold leading-[22px] sm:leading-[26px] break-words" style={{ fontFamily: 'Work Sans' }}>
-                See the data:
+            <div className="col-span-1 sm:col-span-8 md:col-span-10 lg:col-span-12 flex flex-col items-start gap-4 sm:gap-5 min-w-0">
+              {/* Header Section */}
+              <div className="flex flex-col gap-2 w-full">
+                <div className="text-black text-lg sm:text-xl font-bold leading-[22px] sm:leading-[26px]" style={{ fontFamily: 'Work Sans' }}>
+                  Quick dive
+                </div>
+                <div className="text-[#606F7F] text-sm sm:text-base leading-[22px] sm:leading-[26px]" style={{ fontFamily: 'Work Sans', fontWeight: '400' }}>
+                  Talk to our AI for quick recommendations, or our editor top recommendations, or dive into all the data we gather across pricing, coverage, ratings and more. You can customize your experience.
+                </div>
               </div>
-              <div className="w-full flex flex-col justify-start items-start gap-2 sm:gap-3">
-                {/* Single row horizontal scrolling layout */}
+
+              {/* Buttons Section */}
+              <div className="w-full flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2.5">
+                {/* Ask Forbes AI Button */}
                 <div 
-                  className="flex overflow-x-auto gap-2 sm:gap-3 scrollbar-hide py-1 sm:py-2 px-1"
-                  style={{ 
-                    scrollbarWidth: 'none', 
-                    msOverflowStyle: 'none',
-                    WebkitOverflowScrolling: 'touch'
-                  }}
+                  onClick={onOpenChat}
+                  className="relative w-full sm:w-auto sm:min-w-[280px] lg:min-w-[411px] py-4 px-4 bg-black rounded-lg border-none flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-900 transition-all hover:scale-[1.02] active:scale-[0.98] before:content-[''] before:absolute before:inset-0 before:p-px before:rounded-lg before:[background:linear-gradient(90deg,rgba(0,122,200,0.4)_0%,rgba(255,177,54,0.4)_50%,rgba(220,0,0,0.4)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none"
                 >
-                  {QUESTION_CARDS.map((questionCard) => (
-                    <div 
-                      key={questionCard.id}
-                      onClick={() => handleQuestionClick(questionCard.targetSection)}
-                      className="flex-shrink-0 w-fit py-2 px-2 sm:px-3 bg-white shadow-[0px_4px_8px_-1px_rgba(0,0,0,0.10)] rounded-lg border border-solid border-[#f4f5f8] justify-center items-center gap-2 sm:gap-2.5 flex cursor-pointer hover:shadow-[0px_6px_12px_-1px_rgba(0,0,0,0.15)] hover:scale-[1.02] hover:border-[#007AC8] transition-all duration-300 ease-in-out group relative before:content-[''] before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:opacity-0 hover:before:opacity-0  hover:before:[animation-fill-mode:forwards] before:transition-opacity before:duration-300 before:[background:linear-gradient(90deg,rgba(0,122,200,0.1)_0%,rgba(255,177,54,0.1)_50%,rgba(220,0,0,0.1)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none "
-                    >
-                      <div className="justify-center flex flex-col text-[#606f7f] text-xs leading-[16px] sm:leading-[18px] break-words max-w-[200px] sm:max-w-none" style={{ fontFamily: 'Work Sans', fontWeight: '400' }}>
-                        {questionCard.question}
-                      </div>
-                      <div className="w-4 h-4 sm:w-5 sm:h-5 relative flex-shrink-0 group-hover:rotate-45 transition-transform duration-300 ease-in-out">
-                        <CustomArrowUpRightIcon />
-                      </div>
-                    </div>
-                  ))}
+                  <img src="/ForbesAIIcon.svg" alt="Forbes AI" className="w-5 h-5 flex-shrink-0 relative z-[2]" />
+                  <div className="text-white text-sm sm:text-base leading-6 relative z-[2]" style={{ fontFamily: 'Work Sans', fontWeight: '400' }}>
+                    Ask Forbes AI
+                  </div>
+                </div>
+
+                {/* Top Editor Picks Button */}
+                <div className="flex-1 min-h-[56px] py-2 px-4 bg-white rounded-xl border border-[#F4F5F8] shadow-[0px_4px_23px_-1px_rgba(0,0,0,0.05)] flex items-center justify-center gap-2.5 cursor-pointer hover:border-[#007AC8] transition-all">
+                  <img src="/EditorPick.svg" alt="Editor Pick" className="w-6 h-6 flex-shrink-0" />
+                  <div className="text-[#606F7F] text-sm leading-6" style={{ fontFamily: 'Work Sans', fontWeight: '600' }}>
+                    Top Editor Picks
+                  </div>
+                  <div className="w-5 h-5 relative flex-shrink-0">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 5L12.5 10L7.5 15" stroke="#606F7F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Dive into the data Button */}
+                <div className="flex-1 min-h-[56px] py-2 px-4 bg-white rounded-xl border border-[#F4F5F8] shadow-[0px_4px_23px_-1px_rgba(0,0,0,0.05)] flex items-center justify-center gap-2.5 cursor-pointer hover:border-[#007AC8] transition-all">
+                  <img src="/bar-chart-04.svg" alt="Data" className="w-6 h-6 flex-shrink-0" />
+                  <div className="text-[#606F7F] text-sm leading-6" style={{ fontFamily: 'Work Sans', fontWeight: '600' }}>
+                    Dive into the data
+                  </div>
+                  <div className="w-5 h-5 relative flex-shrink-0">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 5L12.5 10L7.5 15" stroke="#606F7F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>

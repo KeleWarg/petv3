@@ -11,4 +11,17 @@ export default defineConfig({
       plugins: [tailwind()],
     },
   },
+  server: {
+    port: 5173,
+    strictPort: false,
+    host: true,
+    hmr: {
+      overlay: true,
+    },
+    headers: {
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0',
+    },
+  },
 });

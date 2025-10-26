@@ -57,6 +57,8 @@ interface ChatOverlayProps {
   userOpinions: UserOpinion[];
   claimsData: ClaimsData[];
   onRecommendations?: (recommendations: ProviderRecommendation[], preferences: UserPreferences) => void;
+  isOpen?: boolean;
+  onClose?: () => void;
 }
 
 const CONVERSATION_FLOW: ConversationQuestion[] = [
@@ -96,7 +98,9 @@ export const ChatOverlay: React.FC<ChatOverlayProps> = ({
   planDetails,
   userOpinions,
   claimsData,
-  onRecommendations
+  onRecommendations,
+  isOpen = false,
+  onClose
 }) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -117,6 +121,21 @@ export const ChatOverlay: React.FC<ChatOverlayProps> = ({
   useEffect(() => {
     scrollToNewest();
   }, [messages]);
+
+  // Initialize chat when opened
+  useEffect(() => {
+    if (isOpen && !isChatInitialized && messages.length === 0) {
+      setIsChatInitialized(true);
+      setTimeout(() => {
+        addBotMessageWithDelay(
+          "Hi! 👋 I'll help you find the perfect pet insurance provider. Let's get started!", 
+          undefined, 
+          true, 
+          () => askNextQuestion()
+        );
+      }, 300);
+    }
+  }, [isOpen]);
 
   // Typing effect component
   const TypingText: React.FC<{ text: string; speed?: number; onComplete?: () => void }> = ({ 
@@ -689,6 +708,11 @@ CRITICAL: Respond ONLY with a valid JSON object in this exact format:
       setIsProcessing(false);
       setIsClosing(false);
       setIsChatInitialized(false); // Reset initialization flag
+      
+      // Call the onClose callback if provided
+      if (onClose) {
+        onClose();
+      }
     }, 200); // Match the fade-out duration
   };
 
@@ -729,6 +753,11 @@ CRITICAL: Respond ONLY with a valid JSON object in this exact format:
       });
     }, 1200);
   };
+
+  // Don't render if not open
+  if (!isOpen) {
+    return null;
+  }
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50">
@@ -1062,20 +1091,6 @@ CRITICAL: Respond ONLY with a valid JSON object in this exact format:
                 value={textInput}
                 onChange={(e) => setTextInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                onFocus={(e) => {
-                  // Prevent double triggering by checking if chat is already initialized
-                  if (!isChatInitialized && messages.length === 0 && !showRecommendations && currentQuestionIndex < CONVERSATION_FLOW.length) {
-                    setIsChatInitialized(true);
-                    setTimeout(() => {
-                      addBotMessageWithDelay(
-                        "Hi! 👋 I'll help you find the perfect pet insurance provider. Let's get started!", 
-                        undefined, 
-                        true, 
-                        () => askNextQuestion()
-                      );
-                    }, 300);
-                  }
-                }}
                 placeholder="Hi there! What are you interested in..."
                 disabled={isProcessing}
                 className="flex-1 bg-transparent border-none outline-none placeholder:text-[#B6B6B6]"
