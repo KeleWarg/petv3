@@ -86,7 +86,7 @@ export const App = (): JSX.Element => {
   };
 
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-white">
       <HeroBanner 
         onOpenChat={handleOpenChat} 
         quickDiveRef={quickDiveRef}
