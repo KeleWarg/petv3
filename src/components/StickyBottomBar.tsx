@@ -16,11 +16,18 @@ export const StickyBottomBar: React.FC<StickyBottomBarProps> = ({
   const [isVisible, setIsVisible] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
-  // Track if user has scrolled
+  // Track if user has scrolled and hide when at top
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
+      const scrollY = window.scrollY;
+      
+      if (scrollY > 100) {
         setHasScrolled(true);
+      }
+      
+      // Hide bar if user scrolls back to top
+      if (scrollY < 50) {
+        setIsVisible(false);
       }
     };
 
