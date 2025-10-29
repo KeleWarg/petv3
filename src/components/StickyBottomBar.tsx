@@ -14,9 +14,22 @@ export const StickyBottomBar: React.FC<StickyBottomBarProps> = ({
   quickDiveSectionRef 
 }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  // Track if user has scrolled
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setHasScrolled(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
-    if (!quickDiveSectionRef?.current) return;
+    if (!quickDiveSectionRef?.current || !hasScrolled) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -34,7 +47,7 @@ export const StickyBottomBar: React.FC<StickyBottomBarProps> = ({
     return () => {
       observer.disconnect();
     };
-  }, [quickDiveSectionRef]);
+  }, [quickDiveSectionRef, hasScrolled]);
 
   const handleScrollToCarousel = () => {
     const carousel = document.querySelector('[class*="BestPetsCarousel"]');
