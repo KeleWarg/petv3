@@ -99,13 +99,13 @@ export const ElementPc = (): JSX.Element => {
   ];
 
   return (
-    <div className="bg-white w-full min-w-[378px] min-h-screen">
+    <div className="bg-white w-full min-w-[378px] min-h-screen overflow-visible">
       {/* Container with max-width and centered */}
-      <div className="max-w-[1440px] min-w-[378px] mx-auto px-5 sm:px-6 md:px-8 lg:px-[90px]">
-        {/* Responsive layout with proper gutters */}
-        <div className="flex gap-6 sm:gap-8 md:gap-11">
-          {/* Navigation - spans 3 columns - Visible only on desktop (1024px+) */}
-          <nav className="hidden xl:flex flex-col items-start justify-start gap-3 max-w-[212px] max-h-[60vh] overflow-y-auto sticky top-[152px] self-start z-[1] bg-white/90 backdrop-blur-sm rounded-lg p-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+      <div className="max-w-[1440px] min-w-[378px] mx-auto px-5 sm:px-6 md:px-8 lg:px-[90px] overflow-visible">
+      {/* Responsive layout with proper gutters */}
+      <div className="flex gap-6 sm:gap-8 md:gap-11 overflow-visible">
+        {/* Navigation - spans 3 columns - Visible only on desktop (1024px+) */}
+        <nav className="hidden xl:flex flex-col items-start justify-start gap-3 max-w-[212px] max-h-[60vh] overflow-y-auto sticky top-[100px] self-start z-[100] bg-white/95 backdrop-blur-sm rounded-lg p-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]" style={{ position: 'sticky' }}>
             {navigationItems.map((item, index) => (
               <Button
                 key={item.id}
