@@ -16,6 +16,7 @@ export const CarouselCard1 = (): JSX.Element => {
         flexGrow: 1,
         minWidth: '280px',
         maxWidth: '312px',
+        minHeight: '480px',
         flexShrink: 0
       }}
     >
@@ -37,7 +38,7 @@ export const CarouselCard1 = (): JSX.Element => {
           }}
         >
           <div className="card-content-wrapper" style={{display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between'}}>
-            <div style={{display: 'flex', flexDirection: 'column', gap: '4px'}}>
+            <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
               <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: '4px', display: 'flex', minHeight: '84px'}}>
                 <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', textDecoration: 'underline', lineHeight: '26px', wordWrap: 'break-word'}}>
                   Embrace
@@ -47,7 +48,7 @@ export const CarouselCard1 = (): JSX.Element => {
                 </div>
               </div>
               <div style={{alignSelf: 'stretch', color: '#606F7F', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '24px', wordWrap: 'break-word'}}>
-                If you care about covering multiple pets affordably, then this plan gives tiered discounts and per-pet limits that scale.
+                Offers 10% multi-pet discounts and flexible per-pet limits that scale with your coverage tier. Great for multi-animal households that want shared protection but individualized benefits.
               </div>
             </div>
 

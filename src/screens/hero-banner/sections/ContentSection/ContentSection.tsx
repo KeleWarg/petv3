@@ -141,6 +141,17 @@ export const ContentSection = ({ onOpenChat, quickDiveRef, onShowTopPicks, onSho
                   and surveying 2,600 pet parents covering 300 breeds.{" "}
                   <span 
                     className="underline cursor-pointer"
+                    onClick={() => {
+                      const methodologySection = document.getElementById('methodology');
+                      if (methodologySection) {
+                        const elementTop = methodologySection.getBoundingClientRect().top + window.pageYOffset;
+                        const offsetTop = elementTop - 80;
+                        window.scrollTo({
+                          top: offsetTop,
+                          behavior: 'smooth'
+                        });
+                      }
+                    }}
                   >
                     Read our methodology
                   </span>

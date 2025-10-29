@@ -15,6 +15,7 @@ export const CarouselCard6 = (): JSX.Element => {
         flexDirection: 'column',
         flexGrow: 1,
         maxWidth: '312px',
+        minHeight: '480px',
         flexShrink: 0,
         backdropFilter: 'blur(2.0px) brightness(110%)',
         boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.40), inset 1px 0 0 rgba(255,255,255,0.32), inset 0 -1px 1px rgba(0,0,0,0.13), inset -1px 0 1px rgba(0,0,0,0.11)'
@@ -48,7 +49,7 @@ export const CarouselCard6 = (): JSX.Element => {
           }}
         >
           <div className="card-content-wrapper" style={{display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between'}}>
-            <div style={{display: 'flex', flexDirection: 'column', gap: '4px'}}>
+            <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
               <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: '4px', display: 'flex', minHeight: 'auto'}}>
                 <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', textDecoration: 'underline', lineHeight: '26px', wordWrap: 'break-word'}}>
                   Figo
@@ -58,7 +59,7 @@ export const CarouselCard6 = (): JSX.Element => {
                 </div>
               </div>
               <div style={{alignSelf: 'stretch', color: '#606F7F', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '24px', wordWrap: 'break-word'}}>
-                If you care about fewer exclusions and higher ceilings, then this plan offers high limits and options like dental/orthopedic.
+                With annual limits up to $20K and broad coverage for dental and orthopedic care, Figo fits pet owners who want fewer exclusions and higher ceilings.
               </div>
             </div>
 

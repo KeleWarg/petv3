@@ -19,6 +19,79 @@ export const PetInsuranceComparison: React.FC<PetInsuranceComparisonProps> = ({ 
             <main className="col-span-6 sm:col-span-8 md:col-span-10 lg:col-span-12 flex flex-col items-start gap-8 sm:gap-10 md:gap-12 bg-white py-4 sm:py-6 md:py-0 w-full mx-auto">
             <div className="flex flex-col items-start gap-10 w-full">
               
+              {/* Our Analysis Section */}
+              <section id="best-value-analysis" className="flex flex-col items-start gap-6 mt-6 pt-10 w-full border-t border-[#CED4DB]">
+                <div style={{
+                  width: '100%',
+                  flexDirection: 'column',
+                  justifyContent: 'flex-start',
+                  alignItems: 'flex-start',
+                  gap: '24px',
+                  display: 'inline-flex'
+                }}>
+                  <div style={{
+                    alignSelf: 'stretch',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-start',
+                    alignItems: 'flex-start',
+                    gap: '24px',
+                    display: 'flex'
+                  }}>
+                    <div style={{
+                      alignSelf: 'stretch',
+                      flexDirection: 'column',
+                      justifyContent: 'flex-start',
+                      alignItems: 'flex-start',
+                      gap: '8px',
+                      display: 'flex'
+                    }}>
+                      <h2 className="text-[32px] sm:text-[32px] md:text-[32px] lg:text-[40px] leading-[39px] sm:leading-[39px] md:leading-[39px] lg:leading-[48px]" style={{color: 'black', fontFamily: 'Schnyder S', fontWeight: 700}}>
+                        Our Analysis of the Best Value in Pet Insurance
+                      </h2>
+                      <div style={{
+                        alignSelf: 'stretch',
+                        flexDirection: 'column',
+                        justifyContent: 'flex-start',
+                        alignItems: 'flex-start',
+                        gap: '16px',
+                        display: 'flex'
+                      }}>
+                        <div style={{
+                          color: '#333333',
+                          fontSize: '18px',
+                          fontFamily: 'Georgia',
+                          fontWeight: '400',
+                          lineHeight: '29.12px',
+                          wordWrap: 'break-word'
+                        }}>
+                          Pets Best's Essential policy offers the most bang for your buck in our analysis of coverage vs. cost. While some policies include more coverage, like Pumpkin and Spot, Pets Best has the highest ratio of coverage compared to cost.
+                        </div>
+                        <div style={{
+                          color: '#333333',
+                          fontSize: '18px',
+                          fontFamily: 'Georgia',
+                          fontWeight: '400',
+                          lineHeight: '29.12px',
+                          wordWrap: 'break-word'
+                        }}>
+                          In the graph below, bubbles that float to the top indicate companies with higher costs, and bubbles to the right indicate broader coverage. The Pets Best Essential plan offers the best value in our analysis.
+                        </div>
+                      </div>
+                      <img
+                        style={{
+                          alignSelf: 'stretch',
+                          width: '100%',
+                          height: 'auto',
+                          objectFit: 'contain'
+                        }}
+                        src="/Chart.png"
+                        alt="Pet Insurance Value Analysis Chart"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </section>
+
               {/* Pet Insurance Cost Section */}
               <section id="insurance-cost" className="flex flex-col items-start gap-6 mt-6 pt-10 w-full border-t border-[#CED4DB]">
                 <div className="flex flex-col items-start gap-6 w-full">
@@ -222,7 +295,7 @@ export const PetInsuranceComparison: React.FC<PetInsuranceComparisonProps> = ({ 
                     <h2 className="text-black text-[32px] sm:text-[32px] md:text-[32px] lg:text-[40px] font-bold leading-[39px] sm:leading-[39px] md:leading-[39px] lg:leading-[48px]" style={{ fontFamily: 'Schnyder S', fontWeight: 700 }}>
                       How to Choose the Right Pet Insurance
                     </h2>
-                    <p className="text-[#606f7f] text-base leading-[26px] font-normal tracking-[0]" style={{ fontFamily: 'Work Sans' }}>
+                    <p className="text-[#333333] text-[18px] leading-[29.12px] font-normal tracking-[0]" style={{ fontFamily: 'Georgia' }}>
                       These simple steps will get you to the best policy for your situation.
                     </p>
                   </div>
@@ -242,7 +315,7 @@ export const PetInsuranceComparison: React.FC<PetInsuranceComparisonProps> = ({ 
                       <h3 className="text-black text-xl font-bold leading-[26px]" style={{ fontFamily: 'Schnyder S' }}>
                         Consider Your Pet's Potential Health Problems
                       </h3>
-                      <p className="text-[#606f7f] text-base leading-[26px] font-normal tracking-[0]" style={{ fontFamily: 'Work Sans' }}>
+                      <p className="text-[#333333] text-[18px] leading-[29.12px] font-normal tracking-[0]" style={{ fontFamily: 'Georgia' }}>
                         Your pet's age, breed and health history can affect what kind of coverage you want. Consult with your vet about your pet's susceptibility to certain illnesses or injuries common to the breed. Also, consider the pet's risk of injury if they spend a lot of time outdoors.
                       </p>
                     </div>
@@ -262,10 +335,10 @@ export const PetInsuranceComparison: React.FC<PetInsuranceComparisonProps> = ({ 
                       <h3 className="text-black text-xl font-bold leading-[26px]" style={{ fontFamily: 'Schnyder S' }}>
                         Determine What Policy Features Are Important to You
                       </h3>
-                      <p className="text-[#606f7f] text-base leading-[26px] font-normal tracking-[0]" style={{ fontFamily: 'Work Sans' }}>
+                      <p className="text-[#333333] text-[18px] leading-[29.12px] font-normal tracking-[0]" style={{ fontFamily: 'Georgia' }}>
                         Consider what types of health issues should be covered by your ideal policy, especially when it comes to potentially pricey problems. For example, if you want coverage for serious illnesses such as cancer, make sure you buy an accident and illness policy rather than an accident-only policy.
                       </p>
-                      <p className="text-[#606f7f] text-base leading-[26px] font-normal tracking-[0]" style={{ fontFamily: 'Work Sans' }}>
+                      <p className="text-[#333333] text-[18px] leading-[29.12px] font-normal tracking-[0]" style={{ fontFamily: 'Georgia' }}>
                         It's also a smart idea to look for coverage perks like a 24/7 pet telehealth line, coverage for vet exam fees and the option to add a wellness plan.
                       </p>
                     </div>
@@ -284,7 +357,7 @@ export const PetInsuranceComparison: React.FC<PetInsuranceComparisonProps> = ({ 
                       <h3 className="text-black text-xl font-bold leading-[26px]" style={{ fontFamily: 'Schnyder S' }}>
                         Consider the Waiting Periods
                       </h3>
-                      <p className="text-[#606f7f] text-base leading-[26px] font-normal tracking-[0]" style={{ fontFamily: 'Work Sans' }}>
+                      <p className="text-[#333333] text-[18px] leading-[29.12px] font-normal tracking-[0]" style={{ fontFamily: 'Georgia' }}>
                         Pet insurance waiting periods are generally two to 14 days for accident coverage and 14 days for illness coverage. Some pet insurers have special waiting periods for orthopedic conditions (such as cruciate ligament issues) that can range from six to 12 months. You can find pet insurance with no special waiting periods, such as <a href="#" className="text-[#007AC8] underline hover:text-[#005a8a] transition-colors">ASPCA pet health insurance</a>.
                       </p>
                     </div>
@@ -304,7 +377,7 @@ export const PetInsuranceComparison: React.FC<PetInsuranceComparisonProps> = ({ 
                       <h3 className="text-black text-xl font-bold leading-[26px]" style={{ fontFamily: 'Schnyder S' }}>
                         Choose Reimbursement Levels
                       </h3>
-                      <p className="text-[#606f7f] text-base leading-[26px] font-normal tracking-[0]" style={{ fontFamily: 'Work Sans' }}>
+                      <p className="text-[#333333] text-[18px] leading-[29.12px] font-normal tracking-[0]" style={{ fontFamily: 'Georgia' }}>
                         Your coverage levels will impact your pet insurance cost. If you want to pay less out of pocket, choose a lower deductible and a higher reimbursement amount, but it'll cost you more in premiums because your insurer will pay out more if you file a pet insurance claim.
                       </p>
                     </div>
@@ -323,7 +396,7 @@ export const PetInsuranceComparison: React.FC<PetInsuranceComparisonProps> = ({ 
                       <h3 className="text-black text-xl font-bold leading-[26px]" style={{ fontFamily: 'Schnyder S' }}>
                         Check Your Pet's Eligibility
                       </h3>
-                      <p className="text-[#606f7f] text-base leading-[26px] font-normal tracking-[0]" style={{ fontFamily: 'Work Sans' }}>
+                      <p className="text-[#333333] text-[18px] leading-[29.12px] font-normal tracking-[0]" style={{ fontFamily: 'Georgia' }}>
                         Some pet insurers have age limits to buy a policy. Most insurers will insure puppies and kittens around the age of six to 10 weeks. But some insurers have upper age limits (such as age 14) to buy a policy. The <a href="#" className="text-[#007AC8] underline hover:text-[#005a8a] transition-colors">best pet insurance companies for older dogs</a> do not have upper age limits and have convenient coverage perks like a 24/7 pet telehealth line and the option to add a wellness plan.
                       </p>
                     </div>
@@ -343,9 +416,69 @@ export const PetInsuranceComparison: React.FC<PetInsuranceComparisonProps> = ({ 
                       <h3 className="text-black text-xl font-bold leading-[26px]" style={{ fontFamily: 'Schnyder S' }}>
                         Compare Quotes for Plans That Match Your Wish List
                       </h3>
-                      <p className="text-[#606f7f] text-base leading-[26px] font-normal tracking-[0]" style={{ fontFamily: 'Work Sans' }}>
+                      <p className="text-[#333333] text-[18px] leading-[29.12px] font-normal tracking-[0]" style={{ fontFamily: 'Georgia' }}>
                         The best way to find a policy within your budget is to <a href="#" className="text-[#007AC8] underline hover:text-[#005a8a] transition-colors">compare pet insurance quotes</a> from multiple insurers. Make sure to compare quotes for various levels of annual coverage. In some cases you can pay a little more per month for a lot more coverage. For example, unlimited annual coverage from Pets Best is only about $6 more per month than its $5,000 limit plan. This is a bargain compared to other pet insurers, where the monthly price difference can be more like $30 and up.
                       </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Additional Sections */}
+                <div style={{width: '100%', height: '100%', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 40, display: 'inline-flex'}}>
+                  {/* Compare Plans Available By Company */}
+                  <div style={{width: '100%', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'flex'}}>
+                    <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'flex'}}>
+                      <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 8, display: 'flex'}}>
+                        <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'flex'}}>
+                          <div style={{alignSelf: 'stretch', color: '#333333', fontSize: 24, fontFamily: 'Work Sans', fontWeight: '700', lineHeight: '29px', wordWrap: 'break-word'}}>Compare Plans Available By Company</div>
+                          <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 16, display: 'flex'}}>
+                            <div style={{color: '#333333', fontSize: 18, fontFamily: 'Georgia', fontWeight: '400', lineHeight: '29.12px', wordWrap: 'break-word'}}>
+                              If you're shopping for pet insurance, the first thing we recommend looking at is the plan type. We recommend a comprehensive pet insurance policy that covers accidents and illnesses. The three main types of pet insurance can generally be broken down to:
+                            </div>
+                            <div style={{color: '#333333', fontSize: 18, fontFamily: 'Georgia', fontWeight: '400', lineHeight: '29.12px', wordWrap: 'break-word'}}>
+                              Accident and illness plan. This covers vet bills for accidents (like broken bones) and illnesses (such as cancer, allergies and skin infections).
+                            </div>
+                            <div style={{color: '#333333', fontSize: 18, fontFamily: 'Georgia', fontWeight: '400', lineHeight: '29.12px', wordWrap: 'break-word'}}>
+                              Accident-only plan. This covers accident-related vet expenses, such as broken bones, bite wounds and ingested foreign objects. It does not cover illness-related vet expenses.
+                            </div>
+                            <div style={{color: '#333333', fontSize: 18, fontFamily: 'Georgia', fontWeight: '400', lineHeight: '29.12px', wordWrap: 'break-word'}}>
+                              Pet wellness plans for routine care. This is typically an add-on policy that covers routine vet expenses like annual wellness exams, flea and heartworm prevention and vaccinations.
+                            </div>
+                            <div style={{color: '#333333', fontSize: 18, fontFamily: 'Georgia', fontWeight: '400', lineHeight: '29.12px', wordWrap: 'break-word'}}>
+                              You might also see the term "comprehensive plan" when you're shopping for pet insurance. This typically refers to an accident and illness policy plus an optional wellness plan. This is sometimes referred to as a "nose to tail" policy.
+                            </div>
+                            <div>
+                              <span style={{color: '#333333', fontSize: 18, fontFamily: 'Georgia', fontWeight: '400', lineHeight: '29.12px', wordWrap: 'break-word'}}>Related: </span>
+                              <span style={{color: '#007AC8', fontSize: 18, fontFamily: 'Georgia', fontWeight: '700', textDecoration: 'underline', lineHeight: '29.12px', wordWrap: 'break-word'}}>What Does Pet Insurance Cover?</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Coverage Levels */}
+                  <div style={{width: '100%', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'flex'}}>
+                    <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'flex'}}>
+                      <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 8, display: 'flex'}}>
+                        <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'flex'}}>
+                          <div style={{alignSelf: 'stretch', color: '#333333', fontSize: 24, fontFamily: 'Work Sans', fontWeight: '700', lineHeight: '29px', wordWrap: 'break-word'}}>Coverage Levels</div>
+                          <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 16, display: 'flex'}}>
+                            <div style={{color: '#333333', fontSize: 18, fontFamily: 'Georgia', fontWeight: '400', lineHeight: '29.12px', wordWrap: 'break-word'}}>
+                              Pet insurance policies will typically offer a range of annual maximums, deductibles and reimbursement levels to choose from. We would prioritize choosing coverage levels you're comfortable with rather than focusing on price alone. In the event of an expensive claim, you'll be glad you bought sufficient coverage.
+                            </div>
+                            <div style={{color: '#333333', fontSize: 18, fontFamily: 'Georgia', fontWeight: '400', lineHeight: '29.12px', wordWrap: 'break-word'}}>
+                              Annual maximum coverage. This is the maximum amount that will be paid out for pet insurance claims during the policy period. Common annual maximum coverage amounts include $5,000, $10,000 and unlimited.
+                            </div>
+                            <div style={{color: '#333333', fontSize: 18, fontFamily: 'Georgia', fontWeight: '400', lineHeight: '29.12px', wordWrap: 'break-word'}}>
+                              Deductible. This is the amount you'll pay toward vet bills before your coverage kicks in. Common deductible choices include $100, $250 and $500.
+                            </div>
+                            <div style={{color: '#333333', fontSize: 18, fontFamily: 'Georgia', fontWeight: '400', lineHeight: '29.12px', wordWrap: 'break-word'}}>
+                              Reimbursement percentage. This is the reimbursement you'll get back if you make a pet insurance claim. Common reimbursement levels include 70%, 80% and 90%.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

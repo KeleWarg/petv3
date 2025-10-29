@@ -16,6 +16,7 @@ export const CarouselCard3 = (): JSX.Element => {
         flexDirection: 'column',
         flexGrow: 1,
         maxWidth: '312px',
+        minHeight: '480px',
         flexShrink: 0,
         outline: '2px #F3C060 solid',
         outlineOffset: '-2px',
@@ -52,7 +53,7 @@ export const CarouselCard3 = (): JSX.Element => {
           }}
         >
           <div className="card-content-wrapper" style={{display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between'}}>
-            <div style={{display: 'flex', flexDirection: 'column', gap: '4px'}}>
+            <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
               <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: '4px', display: 'flex', minHeight: 'auto'}}>
                 <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', textDecoration: 'underline', lineHeight: '26px', wordWrap: 'break-word'}}>
                   Chewy
@@ -62,7 +63,7 @@ export const CarouselCard3 = (): JSX.Element => {
                 </div>
               </div>
               <div style={{alignSelf: 'stretch', color: '#606F7F', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '24px', wordWrap: 'break-word'}}>
-                If you care about budgeting routine care, then this plan bundles exams, vaccines, and preventatives.
+                Bundles wellness coverage exams, vaccines, preventatives and lets you manage care in one plan. 82% of users report lower yearly costs making it ideal if you prefer predictable health budgeting.
               </div>
             </div>
 

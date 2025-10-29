@@ -48,8 +48,8 @@ export const PetsBestCard3 = (): JSX.Element => {
             <img src="/-duocolor-arrow-up-right.svg" alt="External link" className="w-6 h-6" />
           </header>
 
-          <div className="grid grid-cols-12 gap-5 lg:gap-8">
-            <div className="col-span-12 lg:col-span-5 relative">
+          <div className="grid grid-cols-12 gap-3 sm:gap-5 lg:gap-8 w-full max-w-full overflow-hidden">
+            <div className="col-span-12 lg:col-span-5 relative min-w-0">
               <div className="w-full h-[58px] bg-[#f8f8fa] rounded-[16px_16px_0px_0px] overflow-hidden flex items-center justify-center">
                 <img 
                   src="/ChewyIcon.png" 
@@ -64,7 +64,7 @@ export const PetsBestCard3 = (): JSX.Element => {
               />
             </div>
 
-            <div className="col-span-12 lg:col-span-7 flex flex-col gap-2">
+            <div className="col-span-12 lg:col-span-7 flex flex-col gap-2 min-w-0">
               <div className="flex flex-col gap-3.5">
                 <div className="flex items-center gap-3.5">
                   <img
@@ -93,8 +93,8 @@ export const PetsBestCard3 = (): JSX.Element => {
                           {detail.label}
                         </p>
                       </div>
-                      <div className="text-right">
-                        <span className="text-black text-sm leading-[22px] font-bold" style={{ fontFamily: 'Work Sans' }}>
+                      <div className="text-right min-w-0">
+                        <span className="text-black text-sm leading-[22px] font-bold break-words" style={{ fontFamily: 'Work Sans' }}>
                           {detail.value}
                         </span>
                       </div>

@@ -10,8 +10,8 @@ export const SectionDescription: React.FC<SectionDescriptionProps> = ({
   className = "" 
 }) => (
   <p 
-    className={`text-[#606f7f] text-base leading-[26px] font-normal tracking-[0] ${className}`}
-    style={{ fontFamily: 'Work Sans' }}
+    className={`text-[#333333] text-[18px] leading-[29.12px] font-normal tracking-[0] ${className}`}
+    style={{ fontFamily: 'Georgia' }}
   >
     {children}
   </p>

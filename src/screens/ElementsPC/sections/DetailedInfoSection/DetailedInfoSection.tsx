@@ -6,6 +6,7 @@ import { PetsBestCard3 } from "../PetsBestSection/PetsBestCard3";
 import { PetsBestCard4 } from "../PetsBestSection/PetsBestCard4";
 import { PetsBestCard5 } from "../PetsBestSection/PetsBestCard5";
 import { PetsBestCard6 } from "../PetsBestSection/PetsBestCard6";
+import { ProTipsSection } from "../../../ProTipsSection/ProTipsSection";
 
 export const DetailedInfoSection = (): JSX.Element => {
   return (
@@ -18,6 +19,7 @@ export const DetailedInfoSection = (): JSX.Element => {
               <PetsBestCard1 />
               <PetsBestCard2 />
               <PetsBestCard3 />
+              <ProTipsSection />
               <PetsBestCard4 />
               <PetsBestCard5 />
               <PetsBestCard6 />

@@ -13,12 +13,14 @@ export const ElementPc = (): JSX.Element => {
     { title: "Compare Plans", id: "compare-plans" },
     { title: "The Best Providers", id: "best-providers" },
     { title: "Compare the Best Pet\nInsurance Companies", id: "compare-companies" },
+    { title: "Our Analysis of the\nBest Value in Pet Insurance", id: "best-value-analysis" },
     { title: "Pet Insurance Cost\nfor Dogs and Cats", id: "insurance-cost" },
     { title: "Pet Insurance Plan\nDetails", id: "plan-details" },
     { title: "User Opinion of Pet\nInsurance Companies", id: "user-opinion" },
     { title: "User Feedback on\nClaims Process", id: "claims-feedback" },
     { title: "How to Choose the\nRight Pet Insurance", id: "how-to-choose" },
     { title: "Pro Tips From Our\nExperts", id: "pro-tips" },
+    { title: "More About Our Customer\nSatisfaction Survey", id: "customer-satisfaction-survey" },
     { title: "Methodology", id: "methodology" },
     { title: "Frequently Asked\nQuestions", id: "faq" },
   ];
@@ -274,55 +276,22 @@ export const ElementPc = (): JSX.Element => {
               
               {/* Compare the Best Pet Insurance Companies Section */}
               <section id="compare-companies" className="w-full bg-white pt-8 sm:pt-12 border-t border-[#CED4DB] mt-10">
-                <div className="flex flex-col items-start gap-6 w-full">
-                  <h2 className="text-black text-[24px] sm:text-[24px] md:text-[24px] lg:text-[32px] font-bold leading-[29px] sm:leading-[29px] md:leading-[29px] lg:leading-[39px]" style={{ fontFamily: 'Schnyder S', fontWeight: 700 }}>
-                    Compare the Best Pet Insurance Companies
-                  </h2>
-                  
-                  <p className="text-[#606f7f] text-base leading-[26px] font-normal tracking-[0]" style={{ fontFamily: 'Work Sans' }}>
-                    With all the variations in pricing and coverage details, it can be challenging to compare pet insurance policies in an apples-to-apples way. We found the best way to do it is by prioritizing the benefits that are the most important to you and then comparing prices among the policies that match your must-haves. Here's how we chose the best pet insurance.
-                  </p>
-
-                  <div className="flex flex-col items-start gap-4 w-full">
-                    <h3 className="text-black text-lg font-bold leading-[26px]" style={{ fontFamily: 'Georgia' }}>
-                      Plan Type
-                    </h3>
-                    
-                    <p className="text-[#606f7f] text-base leading-[26px] font-normal tracking-[0]" style={{ fontFamily: 'Work Sans' }}>
-                      If you're shopping for pet insurance, the first thing we recommend looking at is the plan type. We recommend a comprehensive pet insurance policy that covers accidents and illnesses. The three main types of pet insurance can generally be broken down to:
-                    </p>
-
-                    <ul className="flex flex-col gap-4 w-full pl-0">
-                      <li className="flex gap-3 items-start">
-                        <div className="w-2 h-2 rounded-full bg-[#007AC8] mt-2 flex-shrink-0"></div>
-                        <div className="flex-1">
-                          <span className="text-black font-bold text-base leading-[26px]" style={{ fontFamily: 'Georgia' }}>Accident and illness plan.</span>
-                          <span className="text-[#606f7f] text-base leading-[26px] font-normal tracking-[0]" style={{ fontFamily: 'Work Sans' }}> This covers vet bills for accidents (like broken bones) and illnesses (such as cancer, allergies and skin infections).</span>
+                <div style={{width: '100%', height: '100%', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'inline-flex'}}>
+                  <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'flex'}}>
+                    <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 8, display: 'flex'}}>
+                      <h2 className="text-[32px] sm:text-[32px] md:text-[32px] lg:text-[40px] leading-[39px] sm:leading-[39px] md:leading-[39px] lg:leading-[48px]" style={{color: 'black', fontFamily: 'Schnyder S', fontWeight: 700}}>Compare the Best Pet Insurance Companies</h2>
+                      <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'flex'}}>
+                        <div style={{alignSelf: 'stretch', color: '#333333', fontSize: 18, fontFamily: 'Georgia', fontWeight: '400', lineHeight: '29.12px', wordWrap: 'break-word'}}>With all the variations in pricing and coverage details, it can be challenging to compare pet insurance policies in an apples-to-apples way. We found the best way to do it is by prioritizing the benefits that are the most important to you and then comparing prices among the policies that match your must-haves. Here's how we chose the best pet insurance.</div>
+                        <div style={{alignSelf: 'stretch', color: '#333333', fontSize: 24, fontFamily: 'Work Sans', fontWeight: '700', lineHeight: '29px', wordWrap: 'break-word'}}>Plan Type</div>
+                        <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 16, display: 'flex'}}>
+                          <div style={{color: '#333333', fontSize: 18, fontFamily: 'Georgia', fontWeight: '400', lineHeight: '29.12px', wordWrap: 'break-word'}}>If you're shopping for pet insurance, the first thing we recommend looking at is the plan type. We recommend a comprehensive pet insurance policy that covers accidents and illnesses. The three main types of pet insurance can generally be broken down to:</div>
+                          <div style={{color: '#333333', fontSize: 18, fontFamily: 'Georgia', fontWeight: '400', lineHeight: '29.12px', wordWrap: 'break-word'}}>Accident and illness plan. This covers vet bills for accidents (like broken bones) and illnesses (such as cancer, allergies and skin infections).</div>
+                          <div style={{color: '#333333', fontSize: 18, fontFamily: 'Georgia', fontWeight: '400', lineHeight: '29.12px', wordWrap: 'break-word'}}>Accident-only plan. This covers accident-related vet expenses, such as broken bones, bite wounds and ingested foreign objects. It does not cover illness-related vet expenses.</div>
+                          <div style={{color: '#333333', fontSize: 18, fontFamily: 'Georgia', fontWeight: '400', lineHeight: '29.12px', wordWrap: 'break-word'}}>Pet wellness plans for routine care. This is typically an add-on policy that covers routine vet expenses like annual wellness exams, flea and heartworm prevention and vaccinations.</div>
+                          <div style={{color: '#333333', fontSize: 18, fontFamily: 'Georgia', fontWeight: '400', lineHeight: '29.12px', wordWrap: 'break-word'}}>You might also see the term "comprehensive plan" when you're shopping for pet insurance. This typically refers to an accident and illness policy plus an optional wellness plan. This is sometimes referred to as a "nose to tail" policy.</div>
+                          <div><span style={{color: '#333333', fontSize: 18, fontFamily: 'Georgia', fontWeight: '400', lineHeight: '29.12px', wordWrap: 'break-word'}}>Related: </span><span style={{color: '#007AC8', fontSize: 18, fontFamily: 'Georgia', fontWeight: '700', textDecoration: 'underline', lineHeight: '29.12px', wordWrap: 'break-word'}}>What Does Pet Insurance Cover?</span></div>
                         </div>
-                      </li>
-                      <li className="flex gap-3 items-start">
-                        <div className="w-2 h-2 rounded-full bg-[#007AC8] mt-2 flex-shrink-0"></div>
-                        <div className="flex-1">
-                          <span className="text-black font-bold text-base leading-[26px]" style={{ fontFamily: 'Georgia' }}>Accident-only plan.</span>
-                          <span className="text-[#606f7f] text-base leading-[26px] font-normal tracking-[0]" style={{ fontFamily: 'Work Sans' }}> This covers accident-related vet expenses, such as broken bones, bite wounds and ingested foreign objects. It does not cover illness-related vet expenses.</span>
-                        </div>
-                      </li>
-                      <li className="flex gap-3 items-start">
-                        <div className="w-2 h-2 rounded-full bg-[#007AC8] mt-2 flex-shrink-0"></div>
-                        <div className="flex-1">
-                          <span className="text-black font-bold text-base leading-[26px]" style={{ fontFamily: 'Georgia' }}>Pet wellness plans for routine care.</span>
-                          <span className="text-[#606f7f] text-base leading-[26px] font-normal tracking-[0]" style={{ fontFamily: 'Work Sans' }}> This is typically an add-on policy that covers routine vet expenses like annual wellness exams, flea and heartworm prevention and vaccinations.</span>
-                        </div>
-                      </li>
-                    </ul>
-
-                    <p className="text-[#606f7f] text-base leading-[26px] font-normal tracking-[0]" style={{ fontFamily: 'Work Sans' }}>
-                      You might also see the term "comprehensive plan" when you're shopping for pet insurance. This typically refers to an accident and illness policy plus an optional wellness plan. This is sometimes referred to as a "nose to tail" policy.
-                    </p>
-
-                    <div className="flex items-center gap-1">
-                      <span className="text-black font-bold text-base" style={{ fontFamily: 'Georgia' }}>Related:</span>
-                      <a href="#" className="text-[#007AC8] text-base underline hover:text-[#005a8a] transition-colors" style={{ fontFamily: 'Georgia' }}>What Does Pet Insurance Cover?</a>
+                      </div>
                     </div>
                   </div>
                 </div>

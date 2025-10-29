@@ -15,6 +15,7 @@ export const CarouselCard5 = (): JSX.Element => {
         flexDirection: 'column',
         flexGrow: 1,
         maxWidth: '312px',
+        minHeight: '480px',
         flexShrink: 0
       }}
     >
@@ -36,7 +37,7 @@ export const CarouselCard5 = (): JSX.Element => {
           }}
         >
           <div className="card-content-wrapper" style={{display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between'}}>
-            <div style={{display: 'flex', flexDirection: 'column', gap: '4px'}}>
+            <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
               <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: '4px', display: 'flex', minHeight: '84px'}}>
                 <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', textDecoration: 'underline', lineHeight: '26px', wordWrap: 'break-word'}}>
                   Spot
@@ -46,7 +47,7 @@ export const CarouselCard5 = (): JSX.Element => {
                 </div>
               </div>
               <div style={{alignSelf: 'stretch', color: '#606F7F', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '24px', wordWrap: 'break-word'}}>
-                If you care about keeping premiums lean, this plan includes end-of-life while leaving exam-fee coverage as an add-on.
+                Spot offers customizable accident & illness plans with annual limits up to $100K and no lifetime caps. Coverage starts after 14 days, includes exam fees and microchipping. A solid fit if you want flexibility to match budget with coverage depth.
               </div>
             </div>
 
