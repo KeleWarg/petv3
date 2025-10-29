@@ -340,14 +340,14 @@ export const ContentSection = ({ onOpenChat, quickDiveRef, onShowTopPicks, onSho
                   </div>
                 </div>
 
-                {/* Top Editor Picks Button */}
+                {/* Top Editorial Picks Button */}
                 <div 
                   onClick={onShowTopPicks}
                   className="flex-1 min-h-[56px] py-2 px-4 bg-white rounded-xl border border-[#F4F5F8] shadow-[0px_4px_23px_-1px_rgba(0,0,0,0.05)] flex items-center justify-center gap-2.5 cursor-pointer hover:border-[#007AC8] transition-all"
                 >
                   <img src="/EditorPick.svg" alt="Editor Pick" className="w-6 h-6 flex-shrink-0" />
                   <div className="text-[#606F7F] text-sm leading-6" style={{ fontFamily: 'Work Sans', fontWeight: '600' }}>
-                    Top Editor Picks
+                    Top Editorial Picks
                   </div>
                   <div className="w-5 h-5 relative flex-shrink-0">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

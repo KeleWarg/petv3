@@ -122,14 +122,14 @@ export const StickyBottomBar: React.FC<StickyBottomBarProps> = ({
               </div>
             </div>
 
-            {/* Top Editor Picks Button */}
+            {/* Top Editorial Picks Button */}
             <div 
               onClick={onShowTopPicks}
               className="h-14 px-4 py-2 bg-white rounded-[48px] border border-[#F4F5F8] flex items-center justify-center gap-2.5 cursor-pointer hover:border-[#007AC8] transition-all"
             >
               <img src="/EditorPick.svg" alt="Editor Pick" className="hidden sm:block w-6 h-6 flex-shrink-0" />
               <div className="text-[#606F7F] text-sm font-semibold leading-6" style={{ fontFamily: 'Work Sans', fontWeight: '600' }}>
-                Top Editor Picks
+                Top Editorial Picks
               </div>
               <div className="hidden sm:block w-5 h-5 relative flex-shrink-0">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

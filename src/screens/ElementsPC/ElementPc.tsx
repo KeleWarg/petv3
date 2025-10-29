@@ -7,8 +7,6 @@ import { DetailedInfoSection } from "./sections/DetailedInfoSection/DetailedInfo
 
 export const ElementPc = (): JSX.Element => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const navRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const isInitialMount = useRef(true);
 
   const navigationItems = [
     { title: "Compare Plans", id: "compare-plans" },
@@ -76,23 +74,6 @@ export const ElementPc = (): JSX.Element => {
     };
   }, [navigationItems]);
 
-  // Auto-scroll navigation to keep active item visible
-  useEffect(() => {
-    // Skip on initial mount to prevent page jump
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-      return;
-    }
-    
-    if (navRefs.current[activeIndex]) {
-      navRefs.current[activeIndex]?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'nearest'
-      });
-    }
-  }, [activeIndex]);
-
   const insuranceDetails = [
     { label: "Maximum annual coverage", value: "$5,000, Unlimited" },
     {
@@ -118,7 +99,6 @@ export const ElementPc = (): JSX.Element => {
                 key={item.id}
                 variant={index === activeIndex ? "default" : "secondary"}
                 onClick={() => handleNavigationClick(index, item.id)}
-                ref={(el) => (navRefs.current[index] = el)}
                 className={`navigation-buttons relative flex-[0_0_auto] min-h-[56px] py-2 h-auto ${
                   index === activeIndex
                     ? "bg-white rounded-[40px] shadow-SEM-shadows-4dp text-black hover:bg-white"

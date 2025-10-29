@@ -6,13 +6,30 @@ interface TopEditorPicksViewProps {
 
 export const TopEditorPicksView: React.FC<TopEditorPicksViewProps> = ({ onBack }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [activeTab, setActiveTab] = useState('key-details');
+  const [showStickyButton, setShowStickyButton] = useState(false);
 
   useEffect(() => {
     // Trigger fade-in animation after component mounts
     setTimeout(() => setIsVisible(true), 50);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show button after scrolling down 100px
+      if (window.scrollY > 100) {
+        setShowStickyButton(true);
+      } else {
+        setShowStickyButton(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
+    <>
     <div 
       className={`w-full transition-all duration-500 ease-in-out ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
@@ -39,251 +56,394 @@ export const TopEditorPicksView: React.FC<TopEditorPicksViewProps> = ({ onBack }
 
         {/* Main Content */}
         <div className="w-full flex flex-col items-center gap-10">
-          {/* Header Section */}
-          <div className="w-full flex flex-col items-center gap-[41px]">
-            <div className="w-full max-w-[1020px] px-4 flex flex-col gap-6">
-              {/* Title and Description */}
-              <div className="flex flex-col gap-2">
-                <h1 
-                  className="text-black text-[40px] font-bold leading-[48px]" 
-                  style={{ fontFamily: 'Schnyder S' }}
-                >
-                  Top Editor Picks for Pet Insurance
-                </h1>
-                <p className="text-[#606F7F] text-base font-normal leading-[26px]" style={{ fontFamily: 'Work Sans' }}>
-                  After evaluating 10 providers across 34 categories, and analyzing 72,002 datapoints, we narrowed our recommendations across three areas. These are not the only good options-but they're the three our editors would actually buy for their own pets. The right choice ultimately depends on what you're optimizing for. Here's how we'd choose.
-                </p>
+          <div className="w-full max-w-[1020px] px-4 sm:px-6 md:px-8">
+            <div style={{width: '100%', height: '100%', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 40, display: 'inline-flex'}}>
+              <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'flex'}}>
+                <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'flex'}}>
+                  <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'flex'}}>
+                    <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 8, display: 'flex'}}>
+                      <div style={{alignSelf: 'stretch', height: 48, justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: 40, fontFamily: 'Schnyder S', fontWeight: '700', lineHeight: '48px', wordWrap: 'break-word'}}>Editorial Picks: Best Pet Insurance Companies</div>
+                      <div style={{alignSelf: 'stretch', color: '#333333', fontSize: 18, fontFamily: 'Georgia', fontWeight: '400', lineHeight: '29.12px', wordWrap: 'break-word'}}>Our team reviewed more than 900,000 pet insurance rates and surveyed 2,600 pet parents across 300 breeds to identify the best-performing providers for 2025. These companies stand out for consistency across coverage, customer satisfaction, and claims experience.<br/>Use the tabs below to compare monthly costs, waiting periods, and plan details side-by-side.</div>
+                    </div>
+                  </div>
+                </div>
+                <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'flex'}}>
+                  <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 8, display: 'flex'}}>
+                    <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column'}}>
+                      <span style={{color: 'black', fontSize: 16, fontFamily: 'Work Sans', fontWeight: '700', lineHeight: '26px', wordWrap: 'break-word'}}>Reviewed by: </span>
+                      <span style={{color: 'black', fontSize: 16, fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '26px', wordWrap: 'break-word'}}>Ashlee Valentine, Senior Staff Editor</span>
+                    </div>
+                    <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column'}}>
+                      <span style={{color: 'black', fontSize: 16, fontFamily: 'Work Sans', fontWeight: '700', lineHeight: '26px', wordWrap: 'break-word'}}>Data Source: </span>
+                      <span style={{color: 'black', fontSize: 16, fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '26px', wordWrap: 'break-word'}}>Forbes Advisor proprietary pricing and satisfaction analysis (Jan-Aug 2025)</span>
+                    </div>
+                  </div>
+                </div>
               </div>
+              {/* Cards Section */}
+              <div style={{width: '100%', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'flex', marginTop: '40px'}}>
+                <div style={{alignSelf: 'stretch', justifyContent: 'center', alignItems: 'stretch', gap: 24, display: 'flex', flexWrap: 'nowrap'}}>
+                  {/* Pets Best Card */}
+                  <div 
+                    className="insurance-plan-card transition-all duration-300 ease-in-out md:hover:scale-105 md:hover:shadow-lg md:hover:border md:hover:border-[#007AC8] cursor-pointer"
+                    style={{
+                      padding: '12px 8px 8px',
+                      position: 'relative',
+                      background: '#f8f8fa',
+                      overflow: 'hidden',
+                      borderRadius: '24px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      flex: '1 1 312px',
+                      maxWidth: '312px',
+                      minHeight: '480px'
+                    }}
+                  >
+                    <div className="card-content-group flex flex-col flex-grow relative">
+                      <div 
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          width: '100%',
+                          alignItems: 'flex-start',
+                          padding: '12px 16px',
+                          position: 'relative',
+                          flexGrow: 1,
+                          background: 'transparent',
+                          borderRadius: '16px',
+                          marginTop: '12px'
+                        }}
+                      >
+                        <div className="card-content-wrapper" style={{display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between'}}>
+                          <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
+                            <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: '4px', display: 'flex', minHeight: '84px'}}>
+                              <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', textDecoration: 'underline', lineHeight: '26px', wordWrap: 'break-word'}}>
+                                Pets Best
+                              </div>
+                              <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '20px', fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '26px', wordWrap: 'break-word', whiteSpace: 'pre-line'}}>
+                                Best{'\n'}overall
+                              </div>
+                            </div>
+                            <div style={{alignSelf: 'stretch', color: '#606F7F', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '24px', wordWrap: 'break-word'}}>
+                              Covers 90% of claims on average and starts coverage within 3 days for accidents and 14 for illness. A well-balanced pick that mixes reliability, fast reimbursement, and fair pricing if you want solid coverage without over-optimizing.
+                            </div>
+                          </div>
 
-              {/* Authors */}
-              <div className="flex flex-wrap items-center gap-10">
-                {/* Writer 1 */}
-                <div className="flex items-center gap-3">
-                  <img 
-                    src="https://placehold.co/40x40" 
-                    alt="Author" 
-                    className="w-10 h-10 rounded-full"
-                  />
-                  <div className="flex flex-col">
-                    <div className="flex items-center gap-0.5">
-                      <span className="text-[#333333] text-sm font-semibold leading-[19.60px]" style={{ fontFamily: 'Work Sans' }}>Written By</span>
-                      <span className="text-[#333333] text-sm font-semibold underline leading-[19.60px]" style={{ fontFamily: 'Work Sans' }}>Ashlee Valentine</span>
-                    </div>
-                    <div className="text-[#333333] text-xs font-normal leading-4" style={{ fontFamily: 'Work Sans' }}>Staff Editor</div>
+                          <div style={{alignSelf: 'stretch', justifyContent: 'space-between', alignItems: 'center', display: 'inline-flex', marginTop: '12px'}}>
+                            <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'center', display: 'inline-flex', gap: '56px'}}>
+                              <div className="transition-all duration-200 md:hover:bg-[#006bb3] md:hover:scale-105 md:hover:border md:hover:border-[#007AC8] cursor-pointer" style={{minWidth: '60px', height: '48px', padding: '9px 16px', background: '#007AC8', borderRadius: '8px', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
+                                <div style={{textAlign: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'row', color: 'white', fontSize: '18px', fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '30px', whiteSpace: 'nowrap'}}>
+                                  Learn More
                   </div>
                 </div>
 
-                {/* Writer 2 */}
-                <div className="flex items-center gap-3">
-                  <img 
-                    src="https://placehold.co/40x40" 
-                    alt="Author" 
-                    className="w-10 h-10 rounded-full"
-                  />
-                  <div className="flex flex-col">
-                    <div className="flex items-center gap-0.5">
-                      <span className="text-[#333333] text-sm font-semibold leading-[19.60px]" style={{ fontFamily: 'Work Sans' }}>Written By</span>
-                      <span className="text-[#333333] text-sm font-semibold underline leading-[19.60px]" style={{ fontFamily: 'Work Sans' }}>Ashlee Valentine</span>
+                              <div style={{width: '80px', height: '80px', background: 'white', boxShadow: '0px 8px 16px -3px rgba(0, 0, 0, 0.10)', borderRadius: '8px', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '8px', display: 'inline-flex'}}>
+                                <img
+                                  style={{width: '64px', height: '64px', objectFit: 'contain'}}
+                                  alt="Pets Best"
+                                  src="/image-10-3.png"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div className="text-[#333333] text-xs font-normal leading-4" style={{ fontFamily: 'Work Sans' }}>Staff Editor</div>
                   </div>
-                </div>
 
-                {/* Expert Reviewer */}
-                <div className="flex items-center gap-3">
-                  <img 
-                    src="https://placehold.co/40x40" 
-                    alt="Expert" 
-                    className="w-10 h-10 rounded-full"
-                  />
-                  <div className="flex flex-col">
-                    <div className="flex items-center gap-0.5">
-                      <span className="text-[#333333] text-sm font-semibold leading-[19.60px]" style={{ fontFamily: 'Work Sans' }}>Expert Reviewed By</span>
-                      <span className="text-[#333333] text-sm font-semibold underline leading-[19.60px]" style={{ fontFamily: 'Work Sans' }}>Ashlee Valentine</span>
-                    </div>
-                    <div className="text-[#333333] text-xs font-normal leading-4" style={{ fontFamily: 'Work Sans' }}>Staff Editor</div>
+                  {/* Embrace Card */}
+                  <div 
+                    className="insurance-plan-card transition-all duration-300 ease-in-out md:hover:scale-105 md:hover:shadow-lg md:hover:border md:hover:border-[#007AC8] cursor-pointer"
+                    style={{
+                      padding: '12px 8px 8px',
+                      position: 'relative',
+                      background: '#f8f8fa',
+                      overflow: 'hidden',
+                      borderRadius: '24px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      flex: '1 1 312px',
+                      maxWidth: '312px',
+                      minHeight: '480px'
+                    }}
+                  >
+                    <div className="card-content-group flex flex-col flex-grow relative">
+                      <div 
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          width: '100%',
+                          alignItems: 'flex-start',
+                          padding: '12px 16px',
+                          position: 'relative',
+                          flexGrow: 1,
+                          background: 'transparent',
+                          borderRadius: '16px',
+                          marginTop: '12px'
+                        }}
+                      >
+                        <div className="card-content-wrapper" style={{display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between'}}>
+                          <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
+                            <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: '4px', display: 'flex', minHeight: '84px'}}>
+                              <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', textDecoration: 'underline', lineHeight: '26px', wordWrap: 'break-word'}}>
+                                Embrace
+                              </div>
+                              <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '20px', fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '26px', wordWrap: 'break-word', whiteSpace: 'pre-line'}}>
+                                Best for{'\n'}multi-pet
+                              </div>
+                            </div>
+                            <div style={{alignSelf: 'stretch', color: '#606F7F', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '24px', wordWrap: 'break-word'}}>
+                              Offers 10% multi-pet discounts and flexible per-pet limits that scale with your coverage tier. Great for multi-animal households that want shared protection but individualized benefits.
+                            </div>
+                          </div>
+
+                          <div style={{alignSelf: 'stretch', justifyContent: 'space-between', alignItems: 'center', display: 'inline-flex', marginTop: '12px'}}>
+                            <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'center', display: 'inline-flex', gap: '56px'}}>
+                              <div className="transition-all duration-200 md:hover:bg-[#006bb3] md:hover:scale-105 md:hover:border md:hover:border-[#007AC8] cursor-pointer" style={{minWidth: '60px', height: '48px', padding: '9px 16px', background: '#007AC8', borderRadius: '8px', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
+                                <div style={{textAlign: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'row', color: 'white', fontSize: '18px', fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '30px', whiteSpace: 'nowrap'}}>
+                                  Learn More
+                                </div>
+                              </div>
+
+                              <div style={{width: '80px', height: '80px', background: 'white', boxShadow: '0px 8px 16px -3px rgba(0, 0, 0, 0.10)', borderRadius: '8px', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '8px', display: 'inline-flex'}}>
+                                <img
+                                  style={{width: '64px', height: '64px', objectFit: 'contain'}}
+                                  alt="Embrace"
+                                  src="/EmbraceIcon.png"
+                                />
+                              </div>
+                            </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Quick Comparison Section */}
-          <div className="w-full max-w-[1019px] px-4 flex flex-col gap-6">
-            <div className="flex flex-col gap-2">
-              <h2 className="text-black text-2xl font-bold leading-8" style={{ fontFamily: 'Work Sans' }}>
-                Quick Comparison
-              </h2>
-              <p className="text-[#606F7F] text-base font-normal leading-[26px]" style={{ fontFamily: 'Work Sans' }}>
-                Here are our top 3 picks.
-              </p>
+                  {/* Spot Card */}
+                  <div 
+                    className="insurance-plan-card transition-all duration-300 ease-in-out md:hover:scale-105 md:hover:shadow-lg md:hover:border md:hover:border-[#007AC8] cursor-pointer"
+                    style={{
+                      padding: '12px 8px 8px',
+                      position: 'relative',
+                      background: '#f8f8fa',
+                      overflow: 'hidden',
+                      borderRadius: '24px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      flex: '1 1 312px',
+                      maxWidth: '312px',
+                      minHeight: '480px'
+                    }}
+                  >
+                    <div className="card-content-group flex flex-col flex-grow relative">
+                      <div 
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          width: '100%',
+                          alignItems: 'flex-start',
+                          padding: '12px 16px',
+                          position: 'relative',
+                          flexGrow: 1,
+                          background: 'transparent',
+                          borderRadius: '16px',
+                          marginTop: '12px'
+                        }}
+                      >
+                        <div className="card-content-wrapper" style={{display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between'}}>
+                          <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
+                            <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: '4px', display: 'flex', minHeight: '84px'}}>
+                              <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', textDecoration: 'underline', lineHeight: '26px', wordWrap: 'break-word'}}>
+                                Spot
+                              </div>
+                              <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '20px', fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '26px', wordWrap: 'break-word', whiteSpace: 'pre-line'}}>
+                                Best for{'\n'}healthy pets
+                              </div>
+                            </div>
+                            <div style={{alignSelf: 'stretch', color: '#606F7F', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '24px', wordWrap: 'break-word'}}>
+                              Spot offers customizable accident & illness plans with annual limits up to $100K and no lifetime caps. Coverage starts after 14 days, includes exam fees and microchipping. A solid fit if you want flexibility to match budget with coverage depth.
+                            </div>
+                          </div>
+
+                          <div style={{alignSelf: 'stretch', justifyContent: 'space-between', alignItems: 'center', display: 'inline-flex', marginTop: '12px'}}>
+                            <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'center', display: 'inline-flex', gap: '56px'}}>
+                              <div className="transition-all duration-200 md:hover:bg-[#006bb3] md:hover:scale-105 md:hover:border md:hover:border-[#007AC8] cursor-pointer" style={{minWidth: '60px', height: '48px', padding: '9px 16px', background: '#007AC8', borderRadius: '8px', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
+                                <div style={{textAlign: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'row', color: 'white', fontSize: '18px', fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '30px', whiteSpace: 'nowrap'}}>
+                                  Learn More
+                                </div>
             </div>
 
-            {/* Comparison Table */}
-            <div className="flex flex-col">
-              {/* Header Row */}
-              <div className="flex">
-                <div className="flex-1 h-[50px] pt-[13px] pb-[15px] px-[9px] bg-[#ECF1FF] rounded-tl-lg border border-[#CED4DB]" />
-                <div className="flex-1 pt-[13px] pb-[15px] px-[9px] bg-[#ECF1FF] border border-l-0 border-[#CED4DB] flex flex-col">
-                  <div className="text-[#007AC8] text-sm font-semibold underline leading-[22px]" style={{ fontFamily: 'Work Sans' }}>Lemonade</div>
+                              <div style={{width: '80px', height: '80px', background: 'white', boxShadow: '0px 8px 16px -3px rgba(0, 0, 0, 0.10)', borderRadius: '8px', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '8px', display: 'inline-flex'}}>
+                                <img
+                                  style={{width: '64px', height: '64px', objectFit: 'contain'}}
+                                  alt="Spot"
+                                  src="/SpotIcon.png"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                 </div>
-                <div className="flex-1 pt-[13px] pb-[15px] px-[9px] bg-[#ECF1FF] border border-l-0 border-[#CED4DB] flex flex-col">
-                  <div className="text-[#007AC8] text-sm font-semibold underline leading-[22px]" style={{ fontFamily: 'Work Sans' }}>Spot</div>
                 </div>
-                <div className="flex-1 pt-[13px] pb-[15px] px-[9px] bg-[#ECF1FF] rounded-tr-lg border border-l-0 border-[#CED4DB] flex flex-col">
-                  <div className="text-[#007AC8] text-sm font-semibold underline leading-[22px]" style={{ fontFamily: 'Work Sans' }}>Embrace</div>
-                </div>
-              </div>
-
-              {/* Best For Row */}
-              <TableRow 
-                label="Best For" 
-                values={['Budget-conscious', 'Balanced coverage', 'High-risk breeds']}
-                isAlternate
-              />
-
-              {/* Monthly Cost Row */}
-              <TableRow 
-                label="Monthly Cost" 
-                values={['$25 for dogs, $20 for cats', '$35 for dogs, $10 for cats', '$27 for dogs, $22 for cats']}
-              />
-
-              {/* Reimbursement Row */}
-              <TableRow 
-                label="Reimbursement" 
-                values={['60%–90%', '70%', '85%']}
-                isAlternate
-              />
-
-              {/* Annual Limit Row */}
-              <TableRow 
-                label="Annual Limit" 
-                values={['$20,000', '$15,000', '$15,000']}
-              />
-
-              {/* Hereditary Coverage Row */}
-              <TableRow 
-                label="Hereditary Coverage" 
-                values={['Standard', 'Standard', 'Comprehensive']}
-                isAlternate
-              />
-
-              {/* Wellness Add-On Row */}
-              <TableRow 
-                label="Wellness Add-On" 
-                values={['Yes', 'No', 'No']}
-              />
-
-              {/* Apply Now Row */}
-              <div className="flex">
-                <div className="flex-1 h-[50px] pt-[13px] pb-[15px] px-[9px] bg-white border border-t-0 border-[#CED4DB]" />
-                <div className="flex-1 pt-[13px] pb-[15px] px-[9px] bg-white border border-l-0 border-t-0 border-[#CED4DB] flex flex-col">
-                  <div className="text-[#007AC8] text-sm font-semibold underline leading-[22px] cursor-pointer hover:opacity-70" style={{ fontFamily: 'Work Sans' }}>Apply Now</div>
-                </div>
-                <div className="flex-1 pt-[13px] pb-[15px] px-[9px] bg-white border border-l-0 border-t-0 border-[#CED4DB] flex flex-col">
-                  <div className="text-[#007AC8] text-sm font-semibold underline leading-[22px] cursor-pointer hover:opacity-70" style={{ fontFamily: 'Work Sans' }}>Apply Now</div>
-                </div>
-                <div className="flex-1 pt-[13px] pb-[15px] px-[9px] bg-white border border-l-0 border-t-0 border-[#CED4DB] flex flex-col">
-                  <div className="text-[#007AC8] text-sm font-semibold underline leading-[22px] cursor-pointer hover:opacity-70" style={{ fontFamily: 'Work Sans' }}>Apply Now</div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Our Picks Section */}
-          <div className="w-full max-w-[1019px] px-4 flex flex-col gap-10">
-            <h2 className="text-black text-2xl font-bold leading-8" style={{ fontFamily: 'Work Sans' }}>
-              Our Picks
-            </h2>
-
-            <div className="flex flex-col gap-4">
-              {/* Price Pick */}
-              <PickCard 
-                category="Price"
-                title="If price matters most - "
-                provider="Lemonade"
-                description="Go with Lemonade. At $25/month, you're paying less than half what you'd pay for Trupanion. Yes, the 70% reimbursement means higher out-of-pocket costs per claim, but if you're protecting against catastrophic expenses and can handle $1-2K yourself, this wins on pure economics."
-              />
-
-              {/* Coverage Pick */}
-              <PickCard 
-                category="Coverage"
-                title="When looking at coverage - "
-                provider="Spot"
-                description="Begin with essential GPS tracking and basic reporting, then gradually add advanced features as your team adapts to the system."
-              />
-
-              {/* Balance Pick */}
-              <PickCard 
-                category="Balance"
-                title="If you want the best balance - "
-                provider="Embrace"
-                description="Begin with essential GPS tracking and basic reporting, then gradually add advanced features as your team adapts to the system."
-              />
+              {/* Separator */}
+              <div style={{width: '100%', height: '1px', background: '#CED4DB', marginTop: '40px', marginBottom: '40px'}}></div>
+              {/* Tabs and Table Section */}
+              <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 40, display: 'flex'}}>
+                {/* Title and Description */}
+                <div style={{width: '100%', maxWidth: 755, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 8, display: 'flex'}}>
+                  <div style={{alignSelf: 'stretch', height: 48, justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: 40, fontFamily: 'Schnyder S', fontWeight: '700', lineHeight: '48px', wordWrap: 'break-word'}}>Here are our top 3 picks</div>
+                  <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#606F7F', fontSize: 16, fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '26px', wordWrap: 'break-word'}}>Understanding what each provider is best at is essential in choosing the best plan for your pet.</div>
+                </div>
+                <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'flex'}}>
+                  <div style={{width: '100%', maxWidth: 965, overflow: 'hidden', justifyContent: 'flex-start', alignItems: 'center', display: 'inline-flex'}}>
+                    <div style={{flex: '1 1 0', overflow: 'hidden', justifyContent: 'flex-start', alignItems: 'center', gap: 8, display: 'flex', flexWrap: 'wrap'}}>
+                      <div 
+                        onClick={() => setActiveTab('key-details')}
+                        style={{height: 56, paddingLeft: 16, paddingRight: 16, paddingTop: 8, paddingBottom: 8, background: activeTab === 'key-details' ? 'black' : '#FAFAFB', boxShadow: activeTab === 'key-details' ? '0px 4px 8px -1px rgba(0, 0, 0, 0.10)' : '0px 0px 0.5px rgba(0, 0, 0, 0.11) inset', borderRadius: 40, justifyContent: 'flex-start', alignItems: 'center', gap: 8, display: 'flex', cursor: 'pointer'}}
+                      >
+                        <div style={{textAlign: 'center', color: activeTab === 'key-details' ? 'white' : 'var(--color-grey-12, #1D1D1F)', fontSize: activeTab === 'key-details' ? 16 : 14, fontFamily: 'Work Sans', fontWeight: '600', lineHeight: activeTab === 'key-details' ? '15px' : '20px', wordWrap: 'break-word'}}>Key Details</div>
+                      </div>
+                      <div 
+                        onClick={() => setActiveTab('pros-cons')}
+                        style={{height: 56, background: activeTab === 'pros-cons' ? 'black' : '#FAFAFB', boxShadow: activeTab === 'pros-cons' ? '0px 4px 8px -1px rgba(0, 0, 0, 0.10)' : '0px 0px 0.5px rgba(0, 0, 0, 0.11) inset', borderRadius: 28, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 8, display: 'inline-flex', cursor: 'pointer'}}
+                      >
+                        <div style={{height: 56, paddingLeft: 16, paddingRight: 16, justifyContent: 'flex-start', alignItems: 'center', display: 'inline-flex'}}>
+                          <div style={{justifyContent: 'flex-start', alignItems: 'center', display: 'flex'}}>
+                            <div style={{textAlign: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: activeTab === 'pros-cons' ? 'white' : 'var(--color-grey-12, #1D1D1F)', fontSize: 14, fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '20px', wordWrap: 'break-word'}}>Pros & Cons</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div 
+                        onClick={() => setActiveTab('additional')}
+                        style={{height: 56, background: activeTab === 'additional' ? 'black' : '#FAFAFB', boxShadow: activeTab === 'additional' ? '0px 4px 8px -1px rgba(0, 0, 0, 0.10)' : '0px 0px 0.5px rgba(0, 0, 0, 0.11) inset', borderRadius: 28, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 8, display: 'inline-flex', cursor: 'pointer'}}
+                      >
+                        <div style={{height: 56, paddingLeft: 16, paddingRight: 16, justifyContent: 'flex-start', alignItems: 'center', display: 'inline-flex'}}>
+                          <div style={{justifyContent: 'flex-start', alignItems: 'center', display: 'flex'}}>
+                            <div style={{textAlign: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: activeTab === 'additional' ? 'white' : 'var(--color-grey-12, #1D1D1F)', fontSize: 14, fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '20px', wordWrap: 'break-word'}}>Additional Details</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-end', display: 'flex', overflowX: 'auto'}}>
+                    <div style={{alignSelf: 'stretch', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+                      <div style={{width: 254, minWidth: 200, height: 72, paddingTop: 13, paddingBottom: 15, paddingLeft: 9, paddingRight: 9, background: '#ECF1FF', borderTopLeftRadius: 8, outline: '1px #CED4DB solid', outlineOffset: '-0.50px', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex'}}>
+                        <div style={{justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#6A6A6A', fontSize: 14, fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '22px', wordWrap: 'break-word'}}>Provider</div>
+                      </div>
+                      <div style={{width: 305, minWidth: 200, height: 72, paddingTop: 13, paddingBottom: 15, paddingLeft: 9, paddingRight: 9, background: '#ECF1FF', outline: '1px #CED4DB solid', outlineOffset: '-0.50px', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex'}}>
+                        <div style={{justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#6A6A6A', fontSize: 14, fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '22px', wordWrap: 'break-word'}}>Editor's Take</div>
+                      </div>
+                      <div style={{width: 288, minWidth: 200, paddingTop: 13, paddingBottom: 15, paddingLeft: 9, paddingRight: 9, background: '#ECF1FF', outline: '1px #CED4DB solid', outlineOffset: '-0.50px', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex'}}>
+                        <div style={{width: 288, justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#6A6A6A', fontSize: 14, fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '22px', wordWrap: 'break-word'}}>Customer Satisfied With Customer Service and Pricing</div>
+                      </div>
+                      <div style={{width: 169, minWidth: 150, height: 72, paddingTop: 13, paddingBottom: 15, paddingLeft: 9, paddingRight: 9, background: '#ECF1FF', borderTopRightRadius: 16, outline: '1px #CED4DB solid', outlineOffset: '-0.50px', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex'}}>
+                        <div style={{justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#6A6A6A', fontSize: 14, fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '22px', wordWrap: 'break-word'}}>Learn More</div>
+                      </div>
+                    </div>
+                    <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'flex'}}>
+                      {/* Pets Best Row */}
+                      <div style={{alignSelf: 'stretch', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+                        <div style={{width: 255, minWidth: 200, height: 68, paddingTop: 13, paddingBottom: 15, paddingLeft: 9, paddingRight: 9, background: 'white', outline: '1px #CED4DB solid', outlineOffset: '-0.50px', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+                          <div style={{justifyContent: 'flex-start', alignItems: 'center', gap: 24, display: 'inline-flex'}}>
+                            <img style={{width: 69, height: 16}} src="/pets-best-logo.svg" alt="Pets Best" />
+                            <div style={{justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#007AC8', fontSize: 14, fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '22px', wordWrap: 'break-word'}}>Pets Best</div>
+                          </div>
+                        </div>
+                        <div style={{width: 305, minWidth: 200, height: 68, paddingTop: 13, paddingBottom: 15, paddingLeft: 9, paddingRight: 9, background: 'white', outline: '1px #CED4DB solid', outlineOffset: '-0.50px', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+                          <div style={{justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#007AC8', fontSize: 14, fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '22px', wordWrap: 'break-word'}}>Best overall</div>
+                        </div>
+                        <div style={{width: 288, minWidth: 200, height: 68, paddingTop: 13, paddingBottom: 15, paddingLeft: 9, paddingRight: 9, background: 'white', outline: '1px #CED4DB solid', outlineOffset: '-0.50px', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+                          <div style={{justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#6A6A6A', fontSize: 14, fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '22px', wordWrap: 'break-word'}}>83%</div>
+                        </div>
+                        <div style={{width: 169, minWidth: 150, height: 68, paddingTop: 13, paddingBottom: 15, paddingLeft: 9, paddingRight: 9, background: 'white', outline: '1px #CED4DB solid', outlineOffset: '-0.50px', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+                          <div style={{minWidth: 60, paddingLeft: 16, paddingRight: 16, paddingTop: 9, paddingBottom: 9, background: '#007AC8', borderRadius: 8, justifyContent: 'center', alignItems: 'center', display: 'inline-flex', cursor: 'pointer'}}>
+                            <div style={{textAlign: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'white', fontSize: 18, fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '30px', wordWrap: 'break-word'}}>Learn More</div>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Embrace Row */}
+                      <div style={{alignSelf: 'stretch', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+                        <div style={{width: 255, minWidth: 200, height: 68, paddingTop: 13, paddingBottom: 15, paddingLeft: 9, paddingRight: 9, background: '#FAFBFF', outline: '1px #CED4DB solid', outlineOffset: '-0.50px', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+                          <div style={{justifyContent: 'flex-start', alignItems: 'center', gap: 24, display: 'inline-flex'}}>
+                            <img style={{width: 69, height: 16}} src="/Embracelogo.png" alt="Embrace" />
+                            <div style={{justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#007AC8', fontSize: 14, fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '22px', wordWrap: 'break-word'}}>Embrace</div>
+                          </div>
+                        </div>
+                        <div style={{width: 305, minWidth: 200, height: 68, paddingTop: 13, paddingBottom: 15, paddingLeft: 9, paddingRight: 9, background: '#FAFBFF', outline: '1px #CED4DB solid', outlineOffset: '-0.50px', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+                          <div style={{justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#007AC8', fontSize: 14, fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '22px', wordWrap: 'break-word'}}>Best for multi-pet</div>
+                        </div>
+                        <div style={{width: 288, minWidth: 200, height: 68, paddingTop: 13, paddingBottom: 15, paddingLeft: 9, paddingRight: 9, background: '#FAFBFF', outline: '1px #CED4DB solid', outlineOffset: '-0.50px', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+                          <div style={{justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#6A6A6A', fontSize: 14, fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '22px', wordWrap: 'break-word'}}>83%</div>
+                        </div>
+                        <div style={{width: 169, minWidth: 150, height: 68, paddingTop: 13, paddingBottom: 15, paddingLeft: 9, paddingRight: 9, background: '#FAFBFF', outline: '1px #CED4DB solid', outlineOffset: '-0.50px', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+                          <div style={{minWidth: 60, paddingLeft: 16, paddingRight: 16, paddingTop: 9, paddingBottom: 9, background: '#007AC8', borderRadius: 8, justifyContent: 'center', alignItems: 'center', display: 'inline-flex', cursor: 'pointer'}}>
+                            <div style={{textAlign: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'white', fontSize: 18, fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '30px', wordWrap: 'break-word'}}>Learn More</div>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Spot Row */}
+                      <div style={{alignSelf: 'stretch', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+                        <div style={{width: 255, minWidth: 200, height: 68, paddingTop: 13, paddingBottom: 15, paddingLeft: 9, paddingRight: 9, background: 'white', outline: '1px #CED4DB solid', outlineOffset: '-0.50px', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+                          <div style={{justifyContent: 'flex-start', alignItems: 'center', gap: 24, display: 'inline-flex'}}>
+                            <img style={{width: 69, height: 16}} src="/Spotlogo.png" alt="Spot" />
+                            <div style={{justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#007AC8', fontSize: 14, fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '22px', wordWrap: 'break-word'}}>Spot</div>
+                          </div>
+                        </div>
+                        <div style={{width: 305, minWidth: 200, height: 68, paddingTop: 13, paddingBottom: 15, paddingLeft: 9, paddingRight: 9, background: 'white', outline: '1px #CED4DB solid', outlineOffset: '-0.50px', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+                          <div style={{justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#007AC8', fontSize: 14, fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '22px', wordWrap: 'break-word'}}>Best for healthy pets</div>
+                        </div>
+                        <div style={{width: 288, minWidth: 200, height: 68, paddingTop: 13, paddingBottom: 15, paddingLeft: 9, paddingRight: 9, background: 'white', outline: '1px #CED4DB solid', outlineOffset: '-0.50px', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+                          <div style={{justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#6A6A6A', fontSize: 14, fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '22px', wordWrap: 'break-word'}}>83%</div>
+                        </div>
+                        <div style={{width: 169, minWidth: 150, height: 68, paddingTop: 13, paddingBottom: 15, paddingLeft: 9, paddingRight: 9, background: 'white', outline: '1px #CED4DB solid', outlineOffset: '-0.50px', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+                          <div style={{minWidth: 60, paddingLeft: 16, paddingRight: 16, paddingTop: 9, paddingBottom: 9, background: '#007AC8', borderRadius: 8, justifyContent: 'center', alignItems: 'center', display: 'inline-flex', cursor: 'pointer'}}>
+                            <div style={{textAlign: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'white', fontSize: 18, fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '30px', wordWrap: 'break-word'}}>Learn More</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
-};
 
-// Helper Components
-interface TableRowProps {
-  label: string;
-  values: string[];
-  isAlternate?: boolean;
-}
-
-const TableRow: React.FC<TableRowProps> = ({ label, values, isAlternate }) => {
-  const bgColor = isAlternate ? '#FAFBFF' : 'white';
-  
-  return (
-    <div className="flex">
+    {/* Sticky Bottom Button */}
+    <div 
+      className={`fixed bottom-6 left-1/2 -translate-x-1/2 transition-all duration-300 z-50 ${
+        showStickyButton ? 'translate-y-0 opacity-100' : 'translate-y-[200%] opacity-0'
+      }`}
+    >
       <div 
-        className="flex-1 pt-[13px] pb-[15px] px-[9px] border border-t-0 border-[#CED4DB] flex flex-col"
-        style={{ background: bgColor }}
+        onClick={onBack}
+        className="cursor-pointer hover:scale-105 transition-transform duration-200"
+        style={{
+          width: '100%', 
+          height: '100%', 
+          paddingLeft: 16, 
+          paddingRight: 16, 
+          paddingTop: 8, 
+          paddingBottom: 8, 
+          background: 'var(--Color-Background-bg-header, black)', 
+          borderRadius: 48, 
+          boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.15)', 
+          justifyContent: 'center', 
+          alignItems: 'center', 
+          gap: 10, 
+          display: 'inline-flex'
+        }}
       >
-        <div className="text-black text-sm font-semibold leading-[22px]" style={{ fontFamily: 'Work Sans' }}>{label}</div>
-      </div>
-      {values.map((value, index) => (
-        <div 
-          key={index}
-          className="flex-1 pt-[13px] pb-[15px] px-[9px] border border-l-0 border-t-0 border-[#CED4DB] flex flex-col"
-          style={{ background: bgColor }}
-        >
-          <div className="text-[#6A6A6A] text-sm font-normal leading-[22px]" style={{ fontFamily: 'Work Sans' }}>{value}</div>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-interface PickCardProps {
-  category: string;
-  title: string;
-  provider: string;
-  description: string;
-}
-
-const PickCard: React.FC<PickCardProps> = ({ category, title, provider, description }) => {
-  return (
-    <div className="p-6 bg-[#F8F8FA] rounded-[24.64px] flex flex-col gap-2">
-      <div className="flex flex-col gap-2">
-        <div className="text-black text-base font-normal underline leading-[26px]" style={{ fontFamily: 'Work Sans' }}>
-          {category}
-        </div>
-        <div className="flex flex-col gap-2">
-          <div>
-            <span className="text-black text-xl font-semibold leading-[26px]" style={{ fontFamily: 'Work Sans' }}>{title}</span>
-            <span className="text-[#007AC8] text-xl font-semibold underline leading-[26px] cursor-pointer hover:opacity-70" style={{ fontFamily: 'Work Sans' }}>{provider}</span>
-          </div>
-          <p className="text-[#606F7F] text-base font-normal leading-6" style={{ fontFamily: 'Work Sans' }}>
-            {description}
-          </p>
-        </div>
+        <div style={{justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'var(--Color-Background-bg-white, white)', fontSize: 14, fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '24px', wordWrap: 'break-word'}}>Back to Article</div>
+        <img src="/arrow-down.svg" alt="Arrow" style={{width: 20, height: 20}} />
       </div>
     </div>
+    </>
   );
 };
 
