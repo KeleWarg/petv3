@@ -7,6 +7,7 @@ import { DetailedInfoSection } from "./sections/DetailedInfoSection/DetailedInfo
 
 export const ElementPc = (): JSX.Element => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const navRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const navigationItems = [
     { title: "Compare Plans", id: "compare-plans" },
@@ -39,6 +40,18 @@ export const ElementPc = (): JSX.Element => {
       });
     }
   };
+
+  // Auto-scroll navigation to keep active item visible
+  useEffect(() => {
+    const activeButton = navRefs.current[activeIndex];
+    if (activeButton) {
+      activeButton.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'nearest'
+      });
+    }
+  }, [activeIndex]);
 
   // Intersection Observer to detect which section is in view
   useEffect(() => {
@@ -96,6 +109,7 @@ export const ElementPc = (): JSX.Element => {
             {navigationItems.map((item, index) => (
               <Button
                 key={item.id}
+                ref={(el) => (navRefs.current[index] = el)}
                 variant={index === activeIndex ? "default" : "secondary"}
                 onClick={() => handleNavigationClick(index, item.id)}
                 className={`navigation-buttons relative flex-[0_0_auto] min-h-[56px] py-2 h-auto ${
