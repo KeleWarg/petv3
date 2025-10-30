@@ -18,7 +18,6 @@ export const ElementPc = (): JSX.Element => {
     { title: "User Opinion of Pet\nInsurance Companies", id: "user-opinion" },
     { title: "User Feedback on\nClaims Process", id: "claims-feedback" },
     { title: "How to Choose the\nRight Pet Insurance", id: "how-to-choose" },
-    { title: "Pro Tips From Our\nExperts", id: "pro-tips" },
     { title: "More About Our Customer\nSatisfaction Survey", id: "customer-satisfaction-survey" },
     { title: "Methodology", id: "methodology" },
     { title: "Frequently Asked\nQuestions", id: "faq" },
