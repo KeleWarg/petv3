@@ -21,7 +21,6 @@ export const ElementPc = (): JSX.Element => {
     { title: "User Feedback on\nClaims Process", id: "claims-feedback" },
     { title: "How to Choose the\nRight Pet Insurance", id: "how-to-choose" },
     { title: "More About Our Customer\nSatisfaction Survey", id: "customer-satisfaction-survey" },
-    { title: "Methodology", id: "methodology" },
     { title: "Frequently Asked\nQuestions", id: "faq" },
   ];
 
@@ -286,7 +285,7 @@ export const ElementPc = (): JSX.Element => {
                 <div style={{width: '100%', height: '100%', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'inline-flex'}}>
                   <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'flex'}}>
                     <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 8, display: 'flex'}}>
-                      <h2 className="text-[32px] sm:text-[32px] md:text-[32px] lg:text-[40px] leading-[39px] sm:leading-[39px] md:leading-[39px] lg:leading-[48px]" style={{color: 'black', fontFamily: 'Schnyder S', fontWeight: 700}}>Compare the Best Pet Insurance Companies</h2>
+                      <h2 className="text-[32px] sm:text-[32px] md:text-[32px] lg:text-[40px] leading-[39px] sm:leading-[39px] md:leading-[39px] lg:leading-[48px]" style={{color: 'black', fontFamily: 'Work Sans', fontWeight: 700}}>Compare the Best Pet Insurance Companies</h2>
                       <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'flex'}}>
                         <div style={{alignSelf: 'stretch', color: '#333333', fontSize: 18, fontFamily: 'Georgia', fontWeight: '400', lineHeight: '29.12px', wordWrap: 'break-word'}}>With all the variations in pricing and coverage details, it can be challenging to compare pet insurance policies in an apples-to-apples way. We found the best way to do it is by prioritizing the benefits that are the most important to you and then comparing prices among the policies that match your must-haves. Here's how we chose the best pet insurance.</div>
                         <div style={{alignSelf: 'stretch', color: '#333333', fontSize: 24, fontFamily: 'Work Sans', fontWeight: '700', lineHeight: '29px', wordWrap: 'break-word'}}>Plan Type</div>

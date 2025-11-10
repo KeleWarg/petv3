@@ -1,5 +1,4 @@
 import {
-  ArrowRightIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "lucide-react";
@@ -34,7 +33,7 @@ export const BestPetsCarousel = (): JSX.Element => {
             <header className="flex flex-col items-start gap-2 mb-3 sm:mb-4 md:mb-5">
               <h2 className="font-schnyder-bold text-[32px] sm:text-[32px] md:text-[32px] lg:text-[40px] leading-[39px] sm:leading-[39px] md:leading-[39px] lg:leading-[48px]" style={{
                 color: 'black',
-                fontFamily: 'Schnyder S',
+                fontFamily: 'Work Sans',
                 fontWeight: '700',
                 wordWrap: 'break-word'
               }}>
@@ -67,23 +66,23 @@ export const BestPetsCarousel = (): JSX.Element => {
             </div>
           </div>
 
-          {/* Bottom section with CTA and navigation */}
+          {/* Bottom section with Author info and navigation */}
           <div className="col-span-6 sm:col-span-8 md:col-span-10 lg:col-span-12">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
-              <Button 
-                onClick={() => window.open('https://import-best-of-llm-d-yyv6.bolt.host/', '_blank')}
-                className="group flex flex-col w-full md:w-auto md:min-w-[400px] lg:w-[610px] items-center gap-2.5 pt-4 sm:pt-5 pb-0 px-2 sm:px-0 relative bg-[#ffffffcc] rounded-lg overflow-hidden border-[none] shadow-[0px_0px_16px_4px_#7d0af81f,inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] before:content-[''] before:absolute before:inset-0 before:p-px before:rounded-lg before:transition-all before:duration-300 before:[background:linear-gradient(90deg,rgba(0,122,200,0.4)_0%,rgba(255,177,54,0.4)_50%,rgba(220,0,0,0.4)_100%)] group-hover:before:[background:linear-gradient(90deg,rgba(0,122,200,1)_0%,rgba(255,177,54,1)_50%,rgba(220,0,0,1)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none h-auto hover:bg-[#ffffffcc]"
-              >
-                <div className="flex items-center justify-center gap-6 sm:gap-12 relative self-stretch w-full flex-[0_0_auto]">
-                  <div className="inline-flex items-center gap-2 pt-0 pb-3 sm:pb-4 px-2 sm:px-4 relative flex-[0_0_auto]">
-                    <span className="relative flex items-center justify-center w-fit mt-[-1.00px] [font-family:'Work_Sans',Helvetica] font-normal text-black text-sm sm:text-base tracking-[0] leading-6 whitespace-nowrap">
-                      Find me the right option
-                    </span>
-
-                    <ArrowRightIcon className="relative w-5 h-5 sm:w-6 sm:h-6" />
+              <div style={{width: '100%', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', gap: 24, display: 'inline-flex'}}>
+                <div style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', gap: 22, display: 'flex'}}>
+                  <div data-for="Writer" style={{justifyContent: 'flex-start', alignItems: 'center', gap: 12, display: 'inline-flex'}}>
+                    <img style={{width: 40, height: 40, borderRadius: 24}} src="https://placehold.co/40x40" alt="Author" />
+                    <div style={{flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex'}}>
+                      <div style={{justifyContent: 'flex-start', alignItems: 'center', gap: 2, display: 'inline-flex'}}>
+                        <div style={{color: '#333333', fontSize: 16, fontFamily: 'Work Sans', fontWeight: '600', textDecoration: 'underline', lineHeight: '26px', wordWrap: 'break-word'}}>Dr. Maya Chen, DVM</div>
+                      </div>
+                      <div style={{color: '#333333', fontSize: 14, fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '24px', wordWrap: 'break-word'}}>Emergency Veterinarian</div>
+                    </div>
                   </div>
                 </div>
-              </Button>
+                <div style={{alignSelf: 'stretch', color: 'var(--Color-Foreground-fg-body, #383C43)', fontSize: 16, fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '26px', wordWrap: 'break-word'}}>Data Verified: Oct 2025 | Source: Forbes Advisor proprietary analysis</div>
+              </div>
 
               <nav className="flex items-center gap-3 sm:gap-4">
                 <Button 
@@ -115,10 +114,6 @@ export const BestPetsCarousel = (): JSX.Element => {
           </div>
 
         </div>
-      </div>
-      
-      <div className="pt-10">
-        <div style={{width: '100%', height: '1px', backgroundColor: '#ECEFF3'}} />
       </div>
     </section>
   );

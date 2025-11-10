@@ -220,7 +220,7 @@ export const EvaluationSection: React.FC<EvaluationSectionProps> = ({
             <div style={{alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 8, display: 'flex'}}>
               <h2 
                 className="text-[32px] sm:text-[32px] md:text-[32px] lg:text-[40px] leading-[39px] sm:leading-[39px] md:leading-[39px] lg:leading-[48px]"
-                style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontFamily: 'Schnyder S', fontWeight: '700', wordWrap: 'break-word'}}
+                style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontFamily: 'Work Sans', fontWeight: '700', wordWrap: 'break-word'}}
               >
                 More About Our Customer Satisfaction Survey
               </h2>
@@ -249,7 +249,7 @@ export const EvaluationSection: React.FC<EvaluationSectionProps> = ({
                 display: 'flex', 
                 flexDirection: 'column', 
                 color: 'black', 
-                fontFamily: 'Schnyder S', 
+                fontFamily: 'Work Sans', 
                 fontWeight: '700', 
                 wordWrap: 'break-word'
               }}

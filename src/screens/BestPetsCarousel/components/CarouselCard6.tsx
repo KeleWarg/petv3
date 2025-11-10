@@ -54,12 +54,12 @@ export const CarouselCard6 = (): JSX.Element => {
                 <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', textDecoration: 'underline', lineHeight: '26px', wordWrap: 'break-word'}}>
                   Figo
                 </div>
-                <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '20px', fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '26px', wordWrap: 'break-word', whiteSpace: 'pre-line'}}>
-                  Best for all-round{'\n'}coverage
+                <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '20px', fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '26px', wordWrap: 'break-word'}}>
+                  Best for plan upgrades
                 </div>
               </div>
               <div style={{alignSelf: 'stretch', color: '#606F7F', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '24px', wordWrap: 'break-word'}}>
-                With annual limits up to $20K and broad coverage for dental and orthopedic care, Figo fits pet owners who want fewer exclusions and higher ceilings.
+                Figo stood out in our evaluation due to its solid coverage in the base plan and the options to upgrade your plan via "Powerups."
               </div>
             </div>
 
@@ -83,7 +83,7 @@ export const CarouselCard6 = (): JSX.Element => {
           </div>
         </div>
         <img
-          className="absolute -top-2.5 left-[206px] w-[106px] h-[146px]"
+          className="absolute -top-2.5 left-[206px] w-[106px] h-[146px] hidden"
           alt="Pet"
           src="/Dog2.png"
         />

@@ -326,7 +326,7 @@ export const DiveIntoDataView: React.FC<DiveIntoDataViewProps> = ({ onBack }) =>
               <section id="insurance-cost" className="flex flex-col items-start gap-6 mt-6 pt-10 w-full border-t border-[#CED4DB]">
                 <div className="flex flex-col items-start gap-6 w-full">
                   <div className="flex flex-col items-start gap-2 w-full">
-                    <h3 className="text-black text-[24px] sm:text-[24px] md:text-[24px] lg:text-[32px] font-bold leading-[29px] sm:leading-[29px] md:leading-[29px] lg:leading-[39px] font-schnyder-bold" style={{ fontFamily: 'Schnyder S', fontWeight: 700 }}>
+                    <h3 className="text-black text-[24px] sm:text-[24px] md:text-[24px] lg:text-[32px] font-bold leading-[29px] sm:leading-[29px] md:leading-[29px] lg:leading-[39px] font-schnyder-bold" style={{ fontFamily: 'Work Sans', fontWeight: 700 }}>
                       Pet Insurance Cost for Dogs and Cats
                     </h3>
                     <p className="text-[#606f7f] text-base leading-[26px] font-normal tracking-[0]" style={{ fontFamily: 'Work Sans' }}>
@@ -467,7 +467,7 @@ export const DiveIntoDataView: React.FC<DiveIntoDataViewProps> = ({ onBack }) =>
               <section id="plan-details" className="flex flex-col items-start gap-10 pt-10 w-full border-t border-[#CED4DB]">
                 <div className="flex flex-col items-start gap-6 w-full">
                   <div className="flex flex-col items-start gap-2 w-full">
-                    <h3 className="text-black text-[24px] sm:text-[24px] md:text-[24px] lg:text-[32px] font-bold leading-[29px] sm:leading-[29px] md:leading-[29px] lg:leading-[39px] font-schnyder-bold" style={{ fontFamily: 'Schnyder S', fontWeight: 700 }}>
+                    <h3 className="text-black text-[24px] sm:text-[24px] md:text-[24px] lg:text-[32px] font-bold leading-[29px] sm:leading-[29px] md:leading-[29px] lg:leading-[39px] font-schnyder-bold" style={{ fontFamily: 'Work Sans', fontWeight: 700 }}>
                       Pet Insurance Plan Details
                     </h3>
                     <p className="text-[#606f7f] text-base leading-[26px] font-normal tracking-[0]" style={{ fontFamily: 'Work Sans' }}>
@@ -681,7 +681,7 @@ export const DiveIntoDataView: React.FC<DiveIntoDataViewProps> = ({ onBack }) =>
               <section id="user-opinion" className="flex flex-col items-start gap-6 pt-10 w-full border-t border-[#CED4DB]">
                 <div className="flex flex-col items-start gap-6 w-full">
                   <div className="flex flex-col items-start gap-2 w-full">
-                    <h3 className="text-black text-[24px] sm:text-[24px] md:text-[24px] lg:text-[32px] font-bold leading-[29px] sm:leading-[29px] md:leading-[29px] lg:leading-[39px] font-schnyder-bold" style={{ fontFamily: 'Schnyder S', fontWeight: 700 }}>
+                    <h3 className="text-black text-[24px] sm:text-[24px] md:text-[24px] lg:text-[32px] font-bold leading-[29px] sm:leading-[29px] md:leading-[29px] lg:leading-[39px] font-schnyder-bold" style={{ fontFamily: 'Work Sans', fontWeight: 700 }}>
                       User Opinion of Pet Insurance Companies
                     </h3>
                     <p className="text-[#606f7f] text-base leading-[26px] font-normal tracking-[0]" style={{ fontFamily: 'Work Sans' }}>

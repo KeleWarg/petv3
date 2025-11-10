@@ -1,9 +1,6 @@
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import { SectionTitle, SectionDescription, CTAButton, TableCell } from "./common";
 import { COST_DATA, PLAN_DETAILS_DATA, USER_OPINION_DATA, CLAIMS_DATA } from "../data/insurance-providers";
-
-// Lazy load the Fold component for better performance
-const Fold = lazy(() => import("../screens/Fold/Fold").then(module => ({ default: module.Fold })));
 
 // Interface for component props
 interface PetInsuranceComparisonProps {
@@ -45,7 +42,7 @@ export const PetInsuranceComparison: React.FC<PetInsuranceComparisonProps> = ({ 
                       gap: '8px',
                       display: 'flex'
                     }}>
-                      <h2 className="text-[32px] sm:text-[32px] md:text-[32px] lg:text-[40px] leading-[39px] sm:leading-[39px] md:leading-[39px] lg:leading-[48px]" style={{color: 'black', fontFamily: 'Schnyder S', fontWeight: 700}}>
+                      <h2 className="text-[32px] sm:text-[32px] md:text-[32px] lg:text-[40px] leading-[39px] sm:leading-[39px] md:leading-[39px] lg:leading-[48px]" style={{color: 'black', fontFamily: 'Work Sans', fontWeight: 700}}>
                         Our Analysis of the Best Value in Pet Insurance
                       </h2>
                       <div style={{
@@ -292,7 +289,7 @@ export const PetInsuranceComparison: React.FC<PetInsuranceComparisonProps> = ({ 
               <section id="how-to-choose" className="flex flex-col items-start gap-6 pt-10 w-full border-t border-[#CED4DB]">
                 <div className="flex flex-col items-start gap-6 w-full">
                   <div className="flex flex-col items-start gap-2 w-full">
-                    <h2 className="text-black text-[32px] sm:text-[32px] md:text-[32px] lg:text-[40px] font-bold leading-[39px] sm:leading-[39px] md:leading-[39px] lg:leading-[48px]" style={{ fontFamily: 'Schnyder S', fontWeight: 700 }}>
+                    <h2 className="text-black text-[32px] sm:text-[32px] md:text-[32px] lg:text-[40px] font-bold leading-[39px] sm:leading-[39px] md:leading-[39px] lg:leading-[48px]" style={{ fontFamily: 'Work Sans', fontWeight: 700 }}>
                       How to Choose the Right Pet Insurance
                     </h2>
                     <p className="text-[#333333] text-[18px] leading-[29.12px] font-normal tracking-[0]" style={{ fontFamily: 'Georgia' }}>
@@ -312,7 +309,7 @@ export const PetInsuranceComparison: React.FC<PetInsuranceComparisonProps> = ({ 
                       </div>
                     </div>
                     <div className="flex-1 flex flex-col gap-3">
-                      <h3 className="text-black text-xl font-bold leading-[26px]" style={{ fontFamily: 'Schnyder S' }}>
+                      <h3 className="text-black text-xl font-bold leading-[26px]" style={{ fontFamily: 'Work Sans' }}>
                         Consider Your Pet's Potential Health Problems
                       </h3>
                       <p className="text-[#333333] text-[18px] leading-[29.12px] font-normal tracking-[0]" style={{ fontFamily: 'Georgia' }}>
@@ -332,7 +329,7 @@ export const PetInsuranceComparison: React.FC<PetInsuranceComparisonProps> = ({ 
                       </div>
                     </div>
                     <div className="flex-1 flex flex-col gap-3">
-                      <h3 className="text-black text-xl font-bold leading-[26px]" style={{ fontFamily: 'Schnyder S' }}>
+                      <h3 className="text-black text-xl font-bold leading-[26px]" style={{ fontFamily: 'Work Sans' }}>
                         Determine What Policy Features Are Important to You
                       </h3>
                       <p className="text-[#333333] text-[18px] leading-[29.12px] font-normal tracking-[0]" style={{ fontFamily: 'Georgia' }}>
@@ -354,7 +351,7 @@ export const PetInsuranceComparison: React.FC<PetInsuranceComparisonProps> = ({ 
                       </div>
                     </div>
                     <div className="flex-1 flex flex-col gap-3">
-                      <h3 className="text-black text-xl font-bold leading-[26px]" style={{ fontFamily: 'Schnyder S' }}>
+                      <h3 className="text-black text-xl font-bold leading-[26px]" style={{ fontFamily: 'Work Sans' }}>
                         Consider the Waiting Periods
                       </h3>
                       <p className="text-[#333333] text-[18px] leading-[29.12px] font-normal tracking-[0]" style={{ fontFamily: 'Georgia' }}>
@@ -374,7 +371,7 @@ export const PetInsuranceComparison: React.FC<PetInsuranceComparisonProps> = ({ 
                       </div>
                     </div>
                     <div className="flex-1 flex flex-col gap-3">
-                      <h3 className="text-black text-xl font-bold leading-[26px]" style={{ fontFamily: 'Schnyder S' }}>
+                      <h3 className="text-black text-xl font-bold leading-[26px]" style={{ fontFamily: 'Work Sans' }}>
                         Choose Reimbursement Levels
                       </h3>
                       <p className="text-[#333333] text-[18px] leading-[29.12px] font-normal tracking-[0]" style={{ fontFamily: 'Georgia' }}>
@@ -393,7 +390,7 @@ export const PetInsuranceComparison: React.FC<PetInsuranceComparisonProps> = ({ 
                       </div>
                     </div>
                     <div className="flex-1 flex flex-col gap-3">
-                      <h3 className="text-black text-xl font-bold leading-[26px]" style={{ fontFamily: 'Schnyder S' }}>
+                      <h3 className="text-black text-xl font-bold leading-[26px]" style={{ fontFamily: 'Work Sans' }}>
                         Check Your Pet's Eligibility
                       </h3>
                       <p className="text-[#333333] text-[18px] leading-[29.12px] font-normal tracking-[0]" style={{ fontFamily: 'Georgia' }}>
@@ -413,7 +410,7 @@ export const PetInsuranceComparison: React.FC<PetInsuranceComparisonProps> = ({ 
                       </div>
                     </div>
                     <div className="flex-1 flex flex-col gap-3">
-                      <h3 className="text-black text-xl font-bold leading-[26px]" style={{ fontFamily: 'Schnyder S' }}>
+                      <h3 className="text-black text-xl font-bold leading-[26px]" style={{ fontFamily: 'Work Sans' }}>
                         Compare Quotes for Plans That Match Your Wish List
                       </h3>
                       <p className="text-[#333333] text-[18px] leading-[29.12px] font-normal tracking-[0]" style={{ fontFamily: 'Georgia' }}>
@@ -483,11 +480,6 @@ export const PetInsuranceComparison: React.FC<PetInsuranceComparisonProps> = ({ 
                   </div>
                 </div>
               </section>
-
-              {/* Methodology and Evaluation Section */}
-              <Suspense fallback={<div className="h-96 flex items-center justify-center">Loading...</div>}>
-                <Fold />
-              </Suspense>
 
               {/* FAQ Section */}
               <section id="faq" className="flex flex-col items-start gap-6 pt-10 w-full border-t border-[#CED4DB]">

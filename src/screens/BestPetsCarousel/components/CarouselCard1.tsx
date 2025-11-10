@@ -43,12 +43,12 @@ export const CarouselCard1 = (): JSX.Element => {
                 <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', textDecoration: 'underline', lineHeight: '26px', wordWrap: 'break-word'}}>
                   Embrace
                 </div>
-                <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '20px', fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '26px', wordWrap: 'break-word', whiteSpace: 'pre-line'}}>
-                  Best for{'\n'}multi-pet
+                <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '20px', fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '26px', wordWrap: 'break-word'}}>
+                  Best for healthy pets
                 </div>
               </div>
               <div style={{alignSelf: 'stretch', color: '#606F7F', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '24px', wordWrap: 'break-word'}}>
-                Offers 10% multi-pet discounts and flexible per-pet limits that scale with your coverage tier. Great for multi-animal households that want shared protection but individualized benefits.
+                We like Embrace because it offers a unique way to save on its accident and illness policy with its Healthy Pet Discount Program.
               </div>
             </div>
 
@@ -72,7 +72,7 @@ export const CarouselCard1 = (): JSX.Element => {
           </div>
         </div>
         <img
-          className="absolute max-h-[146px] object-contain scale-75"
+          className="absolute max-h-[146px] object-contain scale-75 hidden"
           style={{top: '-16px', right: '-40px'}}
           alt="Pet"
           src="/EmbracePopular.png"

@@ -42,12 +42,12 @@ export const CarouselCard5 = (): JSX.Element => {
                 <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', textDecoration: 'underline', lineHeight: '26px', wordWrap: 'break-word'}}>
                   Spot
                 </div>
-                <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '20px', fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '26px', wordWrap: 'break-word', whiteSpace: 'pre-line'}}>
-                  Best for{'\n'}healthy pets
+                <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '20px', fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '26px', wordWrap: 'break-word'}}>
+                  Best for all-around coverage
                 </div>
               </div>
               <div style={{alignSelf: 'stretch', color: '#606F7F', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '24px', wordWrap: 'break-word'}}>
-                Spot offers customizable accident & illness plans with annual limits up to $100K and no lifetime caps. Coverage starts after 14 days, includes exam fees and microchipping. A solid fit if you want flexibility to match budget with coverage depth.
+                Spot pet insurance stands out in our analysis due to its impressive array of coverage benefits included with its base policy.
               </div>
             </div>
 
@@ -71,7 +71,7 @@ export const CarouselCard5 = (): JSX.Element => {
           </div>
         </div>
         <img
-          className="absolute -top-2.5 left-[206px] w-[106px] h-[146px]"
+          className="absolute -top-2.5 left-[206px] w-[106px] h-[146px] hidden"
           alt="Pet"
           src="/Dog2.png"
         />

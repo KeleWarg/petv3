@@ -42,12 +42,12 @@ export const CarouselCard4 = (): JSX.Element => {
                 <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', textDecoration: 'underline', lineHeight: '26px', wordWrap: 'break-word'}}>
                   Pets Best
                 </div>
-                <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '20px', fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '26px', wordWrap: 'break-word', whiteSpace: 'pre-line'}}>
-                  Best{'\n'}overall
+                <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '20px', fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '26px', wordWrap: 'break-word'}}>
+                  Best pet insurance
                 </div>
               </div>
               <div style={{alignSelf: 'stretch', color: '#606F7F', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '24px', wordWrap: 'break-word'}}>
-                Covers 90% of claims on average and starts coverage within 3 days for accidents and 14 for illness. A well-balanced pick that mixes reliability, fast reimbursement, and fair pricing if you want solid coverage without over-optimizing.
+                Pets Best stands out for its competitive prices and robust coverage, including vet exam fees, dental illnesses, behavioral therapy and alternative therapies.
               </div>
             </div>
 
@@ -71,7 +71,7 @@ export const CarouselCard4 = (): JSX.Element => {
           </div>
         </div>
         <img
-          className="absolute -top-2.5 left-[206px] w-[106px] h-[146px]"
+          className="absolute -top-2.5 left-[206px] w-[106px] h-[146px] hidden"
           alt="Pet"
           src="/shutterstock-2324170407-1-2.png"
         />

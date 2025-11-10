@@ -25,7 +25,7 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({ children, className 
   return (
     <Tag 
       className={`${getClasses(level)} ${className}`}
-      style={{ fontFamily: 'Schnyder S', fontWeight: 700 }}
+      style={{ fontFamily: 'Work Sans', fontWeight: 700 }}
     >
       {children}
     </Tag>

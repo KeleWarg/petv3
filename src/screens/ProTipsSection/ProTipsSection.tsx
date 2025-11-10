@@ -82,7 +82,7 @@ export const ProTipsSection = (): JSX.Element => {
               flexDirection: 'column',
               color: 'black',
               fontSize: '40px',
-              fontFamily: 'Schnyder S',
+              fontFamily: 'Work Sans',
               fontWeight: '700',
               lineHeight: '48px',
               wordWrap: 'break-word'

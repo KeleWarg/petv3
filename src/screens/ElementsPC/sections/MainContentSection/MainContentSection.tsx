@@ -34,7 +34,7 @@ export const MainContentSection = (): JSX.Element => {
           className="text-[32px] sm:text-[32px] md:text-[32px] lg:text-[40px] leading-[39px] sm:leading-[39px] md:leading-[39px] lg:leading-[48px]"
           style={{
             color: 'black',
-            fontFamily: 'Schnyder S',
+            fontFamily: 'Work Sans',
             fontWeight: '700'
           }}
         >

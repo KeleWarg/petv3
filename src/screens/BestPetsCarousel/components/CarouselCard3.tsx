@@ -58,12 +58,12 @@ export const CarouselCard3 = (): JSX.Element => {
                 <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', textDecoration: 'underline', lineHeight: '26px', wordWrap: 'break-word'}}>
                   Chewy
                 </div>
-                <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '20px', fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '26px', wordWrap: 'break-word', whiteSpace: 'pre-line'}}>
-                  Best for{'\n'}wellness
+                <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'black', fontSize: '20px', fontFamily: 'Work Sans', fontWeight: '600', lineHeight: '26px', wordWrap: 'break-word'}}>
+                  Best for wellness
                 </div>
               </div>
               <div style={{alignSelf: 'stretch', color: '#606F7F', fontSize: '16px', fontFamily: 'Work Sans', fontWeight: '400', lineHeight: '24px', wordWrap: 'break-word'}}>
-                Bundles wellness coverage exams, vaccines, preventatives and lets you manage care in one plan. 82% of users report lower yearly costs making it ideal if you prefer predictable health budgeting.
+                Chewy's plan through Trupanion stands out thanks to its ability to pay a vet directly. It also offers two different tiers of wellness plans for expenses such as annual checkups  and pet vaccines.
               </div>
             </div>
 
@@ -87,7 +87,7 @@ export const CarouselCard3 = (): JSX.Element => {
           </div>
         </div>
         <img
-          className="absolute top-1 right-2 w-[85px] h-[91px]"
+          className="absolute top-1 right-2 w-[85px] h-[91px] hidden"
           alt="Pet"
           src="/shutterstock-2397244269.png"
         />

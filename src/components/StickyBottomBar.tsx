@@ -75,7 +75,7 @@ export const StickyBottomBar: React.FC<StickyBottomBarProps> = ({
 
   return (
     <>
-      {/* Forbes AI Button - Floating on mobile, hidden on desktop (shown in sticky bar) */}
+      {/* Personalized AI Recommendations Button - Floating on mobile, hidden on desktop (shown in sticky bar) */}
       <div 
         className="sm:hidden fixed bottom-24 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ease-in-out"
         style={{
@@ -88,7 +88,7 @@ export const StickyBottomBar: React.FC<StickyBottomBarProps> = ({
         >
           <img src="/ForbesAIIcon.svg" alt="Forbes AI" className="w-5 h-5 flex-shrink-0 relative z-[2]" />
           <div className="text-white text-base leading-6 relative z-[2]" style={{ fontFamily: 'Work Sans', fontWeight: '400' }}>
-            Ask Forbes AI
+            Ask our AI
           </div>
         </div>
       </div>
@@ -111,14 +111,14 @@ export const StickyBottomBar: React.FC<StickyBottomBarProps> = ({
         >
           {/* Buttons container with padding */}
           <div className="py-3 px-2.5 flex items-center gap-2.5">
-            {/* Ask Forbes AI Button - Desktop only (Position 1 on desktop) */}
+            {/* Personalized AI Recommendations Button - Desktop only (Position 1 on desktop) */}
             <div 
               onClick={onOpenChat}
               className="hidden sm:flex relative h-14 px-4 py-2 bg-black rounded-[48px] border-none items-center justify-center gap-2 cursor-pointer hover:bg-gray-900 transition-all hover:scale-[1.02] active:scale-[0.98] before:content-[''] before:absolute before:inset-0 before:p-px before:rounded-[48px] before:[background:linear-gradient(90deg,rgba(0,122,200,0.4)_0%,rgba(255,177,54,0.4)_50%,rgba(220,0,0,0.4)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none"
             >
               <img src="/ForbesAIIcon.svg" alt="Forbes AI" className="w-5 h-5 flex-shrink-0 relative z-[2]" />
               <div className="text-white text-base leading-6 relative z-[2]" style={{ fontFamily: 'Work Sans', fontWeight: '400' }}>
-                Ask Forbes AI
+                Ask our AI
               </div>
             </div>
 

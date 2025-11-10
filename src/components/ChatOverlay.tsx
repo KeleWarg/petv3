@@ -114,6 +114,7 @@ export const ChatOverlay: React.FC<ChatOverlayProps> = ({
   const [typingMessageId, setTypingMessageId] = useState<string | null>(null);
   const [isTypingActive, setIsTypingActive] = useState(false);
   const [isChatInitialized, setIsChatInitialized] = useState(false); // Prevent double initialization
+  const initializingRef = useRef(false); // Track if initialization is in progress
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToNewest = () => {
@@ -126,9 +127,10 @@ export const ChatOverlay: React.FC<ChatOverlayProps> = ({
 
   // Initialize chat when opened
   useEffect(() => {
-    if (isOpen && !isChatInitialized && messages.length === 0) {
+    if (isOpen && !isChatInitialized && messages.length === 0 && !initializingRef.current) {
+      initializingRef.current = true;
       setIsChatInitialized(true);
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         addBotMessageWithDelay(
           "Hi! 👋 I'll help you find the perfect pet insurance provider. Let's get started!", 
           undefined, 
@@ -139,6 +141,10 @@ export const ChatOverlay: React.FC<ChatOverlayProps> = ({
           }
         );
       }, 300);
+      
+      return () => {
+        clearTimeout(timer);
+      };
     }
   }, [isOpen, isChatInitialized, messages.length]);
 
@@ -713,6 +719,7 @@ CRITICAL: Respond ONLY with a valid JSON object in this exact format:
     setTextInput('');
     setIsProcessing(false);
     setIsChatInitialized(false); // Reset initialization flag
+    initializingRef.current = false; // Reset initialization ref
 
     setTimeout(() => {
       addBotMessageWithDelay(
@@ -741,6 +748,7 @@ CRITICAL: Respond ONLY with a valid JSON object in this exact format:
       setIsProcessing(false);
       setIsClosing(false);
       setIsChatInitialized(false); // Reset initialization flag
+      initializingRef.current = false; // Reset initialization ref
       
       // Call the onClose callback if provided
       if (onClose) {
