@@ -125,29 +125,6 @@ export const ChatOverlay: React.FC<ChatOverlayProps> = ({
     scrollToNewest();
   }, [messages]);
 
-  // Initialize chat when opened
-  useEffect(() => {
-    if (isOpen && !isChatInitialized && messages.length === 0 && !initializingRef.current) {
-      initializingRef.current = true;
-      setIsChatInitialized(true);
-      const timer = setTimeout(() => {
-        addBotMessageWithDelay(
-          "Hi! 👋 I'll help you find the perfect pet insurance provider. Let's get started!", 
-          undefined, 
-          true, 
-          () => {
-            // Wait briefly before asking first question
-            setTimeout(() => askNextQuestion(), 600);
-          }
-        );
-      }, 300);
-      
-      return () => {
-        clearTimeout(timer);
-      };
-    }
-  }, [isOpen, isChatInitialized, messages.length]);
-
   // Typing effect component
   const TypingText: React.FC<{ text: string; speed?: number; onComplete?: () => void }> = ({ 
     text, 
@@ -304,6 +281,29 @@ export const ChatOverlay: React.FC<ChatOverlayProps> = ({
       showResults();
     }
   };
+
+  // Initialize chat when opened - now defined after helper functions
+  useEffect(() => {
+    if (isOpen && !isChatInitialized && messages.length === 0 && !initializingRef.current) {
+      initializingRef.current = true;
+      setIsChatInitialized(true);
+      const timer = setTimeout(() => {
+        addBotMessage(
+          "Hi! 👋 I'll help you find the perfect pet insurance provider. Let's get started!", 
+          undefined, 
+          true, 
+          () => {
+            // Wait briefly before asking first question
+            setTimeout(() => askNextQuestion(), 600);
+          }
+        );
+      }, 300);
+      
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [isOpen, isChatInitialized, messages.length]);
 
   const getAcknowledgmentMessage = (option: string, field: string): string => {
     const lowerOption = option.toLowerCase();
