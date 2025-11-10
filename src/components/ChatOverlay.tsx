@@ -1,5 +1,5 @@
 // src/components/ChatOverlay.tsx
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Loader2 } from 'lucide-react';
 import {
   InsurancePlan,
