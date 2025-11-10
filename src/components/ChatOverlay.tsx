@@ -115,6 +115,7 @@ export const ChatOverlay: React.FC<ChatOverlayProps> = ({
   const [isTypingActive, setIsTypingActive] = useState(false);
   const [isChatInitialized, setIsChatInitialized] = useState(false); // Prevent double initialization
   const initializingRef = useRef(false); // Track if initialization is in progress
+  const firstQuestionAskedRef = useRef(false); // Track if first question has been asked
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToNewest = () => {
@@ -284,26 +285,33 @@ export const ChatOverlay: React.FC<ChatOverlayProps> = ({
 
   // Initialize chat when opened - now defined after helper functions
   useEffect(() => {
-    if (isOpen && !isChatInitialized && messages.length === 0 && !initializingRef.current) {
-      initializingRef.current = true;
+    // Only initialize if chat is open, not yet initialized, no messages, and not currently initializing
+    if (isOpen && !isChatInitialized && messages.length === 0) {
+      // Use setIsChatInitialized immediately to prevent double initialization in StrictMode
       setIsChatInitialized(true);
-      const timer = setTimeout(() => {
-        addBotMessage(
-          "Hi! 👋 I'll help you find the perfect pet insurance provider. Let's get started!", 
-          undefined, 
-          true, 
-          () => {
-            // Wait briefly before asking first question
-            setTimeout(() => askNextQuestion(), 600);
-          }
-        );
-      }, 300);
       
-      return () => {
-        clearTimeout(timer);
-      };
+      console.log('Initializing chat...');
+      // Add message directly
+      addBotMessage(
+        "Hi! 👋 I'll help you find the perfect pet insurance provider. Let's get started!", 
+        undefined, 
+        true, 
+        () => {
+          // Guard against double execution due to StrictMode
+          if (firstQuestionAskedRef.current) {
+            console.log('First question already asked, skipping duplicate call');
+            return;
+          }
+          firstQuestionAskedRef.current = true;
+          
+          // Wait briefly before asking first question
+          console.log('Initial message complete, asking first question...');
+          setTimeout(() => askNextQuestion(), 600);
+        }
+      );
     }
-  }, [isOpen, isChatInitialized, messages.length]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen]);
 
   const getAcknowledgmentMessage = (option: string, field: string): string => {
     const lowerOption = option.toLowerCase();
@@ -720,6 +728,7 @@ CRITICAL: Respond ONLY with a valid JSON object in this exact format:
     setIsProcessing(false);
     setIsChatInitialized(false); // Reset initialization flag
     initializingRef.current = false; // Reset initialization ref
+    firstQuestionAskedRef.current = false; // Reset first question flag
 
     setTimeout(() => {
       addBotMessageWithDelay(
@@ -727,6 +736,10 @@ CRITICAL: Respond ONLY with a valid JSON object in this exact format:
         undefined, 
         true, 
         () => {
+          // Guard against double execution
+          if (firstQuestionAskedRef.current) return;
+          firstQuestionAskedRef.current = true;
+          
           // Wait briefly before asking first question
           setTimeout(() => askNextQuestion(), 600);
         }
@@ -749,6 +762,7 @@ CRITICAL: Respond ONLY with a valid JSON object in this exact format:
       setIsClosing(false);
       setIsChatInitialized(false); // Reset initialization flag
       initializingRef.current = false; // Reset initialization ref
+      firstQuestionAskedRef.current = false; // Reset first question flag
       
       // Call the onClose callback if provided
       if (onClose) {
